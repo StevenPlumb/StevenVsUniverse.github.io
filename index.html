@@ -1,22 +1,259 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#080e20"><meta name="description" content="StevenVsUniverse — Chase the Challenge. Gaming, 3D printing, community and impact.">
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>StevenVsUniverse | Chase the Challenge</title>
+
 <style>
-:root{color-scheme:dark;--bg:#080e20;--panel:#121d37;--line:#2d3c61;--red:#f04455;--blue:#4d91ff;--text:#f6f8ff;--muted:#acbad7}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at 80% 5%,#152e60 0,transparent 35%),radial-gradient(circle at 5% 30%,#3c142b 0,transparent 25%),var(--bg);font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:var(--text);line-height:1.55}a{color:inherit;text-decoration:none}a:focus-visible{outline:3px solid #fff;outline-offset:4px}header{position:sticky;top:0;z-index:5;background:#080e20ed;border-bottom:1px solid var(--line);backdrop-filter:blur(14px)}.nav{max-width:1150px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap}.logo{font-weight:900;letter-spacing:-.05em;font-size:1.25rem}.logo span{color:var(--red)}nav{display:flex;gap:16px;flex-wrap:wrap;font-size:.9rem;color:var(--muted)}nav a:hover{color:white}main{max-width:1150px;margin:auto;padding:0 20px}.hero{padding:88px 0 60px;max-width:850px}.eyebrow{color:#91baff;letter-spacing:.18em;font-size:.75rem;font-weight:800;text-transform:uppercase}.hero h1{font-size:clamp(3rem,9vw,6.8rem);line-height:.99;letter-spacing:-.07em;margin:20px 0}.hero h1 span{color:var(--red)}.hero p{color:var(--muted);font-size:1.15rem;max-width:620px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.btn{display:inline-block;padding:12px 19px;border-radius:10px;font-weight:800;background:var(--red);color:white}.btn.secondary{background:#182b50;border:1px solid #4267a5}.section{padding:38px 0}.section h2{font-size:clamp(1.6rem,4vw,2.5rem);letter-spacing:-.04em;margin:0 0 8px}.section>p{color:var(--muted);margin:0 0 24px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card{background:linear-gradient(145deg,#192b4e,#111a30);border:1px solid var(--line);border-radius:18px;padding:27px;min-height:210px;transition:transform .2s,border-color .2s}.card:hover{transform:translateY(-4px);border-color:var(--blue)}.card .tag{font-size:.75rem;font-weight:900;letter-spacing:.12em;color:#8fb7ff}.card h3{font-size:1.55rem;margin:12px 0 8px}.card p{color:var(--muted);margin:0}.card.red{background:linear-gradient(145deg,#421d35,#151b31)}.card .arrow{display:inline-block;margin-top:20px;color:#9bc0ff;font-weight:800}.banner{background:linear-gradient(90deg,#3a1b32,#17366c);border:1px solid #45629a;border-radius:18px;padding:30px;margin:35px 0}.banner h2{margin:0 0 8px}.banner p{color:#d5dff1}footer{border-top:1px solid var(--line);padding:30px 20px;text-align:center;color:var(--muted);margin-top:50px}.small{font-size:.84rem;color:var(--muted)}@media(max-width:650px){.hero{padding:62px 0 30px}.grid{grid-template-columns:1fr}.card{min-height:180px}nav{gap:12px}.nav{align-items:flex-start}}
+
+:root{--bg:#080e1e;--panel:#121f39;--red:#f43f56;--blue:#3b82f6;--text:#f5f7ff;--muted:#aebbd3}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,sans-serif}
+
+header{position:sticky;top:0;z-index:10;background:#080e1ef2;border-bottom:1px solid #294168;padding:18px 5%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:15px}
+
+.logo{font-weight:900;font-size:22px;letter-spacing:-1px}
+
+.logo span,.red{color:var(--red)}
+
+nav{display:flex;flex-wrap:wrap;gap:16px}
+
+nav a{color:var(--muted);text-decoration:none;font-size:14px}
+
+nav a:hover{color:white}
+
+.hero{padding:95px 6% 80px;text-align:center;background:radial-gradient(ellipse at top,#173e80 0%,#080e1e 70%)}
+
+.eyebrow{color:#8bb8ff;letter-spacing:4px;font-size:12px;font-weight:bold}
+
+h1{font-size:clamp(42px,9vw,88px);line-height:1.05;margin:24px 0}
+
+h2{font-size:clamp(27px,5vw,42px);margin:12px 0}
+
+p{color:var(--muted);line-height:1.65}
+
+.hero p{max-width:650px;margin:20px auto;font-size:18px}
+
+.btn{display:inline-block;background:var(--red);color:white;text-decoration:none;padding:15px 24px;border-radius:12px;font-weight:bold;margin:8px}
+
+.btn.alt{background:#1b335b;border:1px solid #426db0}
+
+section{padding:65px 6%;max-width:1250px;margin:auto}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:30px}
+
+.card{background:linear-gradient(145deg,#172b4b,#101a30);border:1px solid #2c4974;border-radius:20px;padding:28px;position:relative;overflow:hidden;transition:transform .2s,border-color .2s}
+
+.card:hover{transform:translateY(-5px);border-color:var(--blue)}
+
+.card:before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:linear-gradient(90deg,var(--red),var(--blue))}
+
+.symbol{font-size:44px;margin-bottom:18px}
+
+.card h3{font-size:23px;margin:8px 0}
+
+.card a{color:#8bb8ff;font-weight:bold;text-decoration:none}
+
+.tag{display:inline-block;background:#203c68;color:#b5d3ff;border-radius:20px;padding:7px 12px;font-size:12px;font-weight:bold}
+
+.banner{background:linear-gradient(110deg,#29152d,#102d60);border:1px solid #43517a;border-radius:20px;padding:30px;margin-top:25px}
+
+footer{text-align:center;border-top:1px solid #263a5e;padding:35px;color:var(--muted)}
+
+@media(max-width:600px){header{justify-content:center;text-align:center}.hero{padding-top:65px}section{padding:45px 5%}}
+
 </style>
+
 </head>
+
 <body>
-<header><div class="nav"><a class="logo" href="#home">STEVEN<span>VS</span>UNIVERSE</a><nav aria-label="Main navigation"><a href="#games">Games</a><a href="#venture-squad">Venture Squad</a><a href="#print-it-forward">Print It Forward</a><a href="#contact">Connect</a></nav></div></header>
-<main id="home"><section class="hero"><div class="eyebrow">Welcome to the universe</div><h1>CHASE THE<br><span>CHALLENGE.</span></h1><p>Games. Wild challenges. Epic 3D prints. A community turning creativity into something bigger. Welcome to StevenVsUniverse.</p><div class="actions"><a class="btn" href="#games">Explore the challenges</a><a class="btn secondary" href="#venture-squad">Meet Venture Squad</a></div></section>
-<section class="section" id="games"><div class="eyebrow">StevenVsGames</div><h2>Choose your adventure</h2><p>From boss battles to real-world builds, every challenge has something on the line.</p><div class="grid"><a class="card red" href="#bounty-board"><div class="tag">01 / TROPHY HUNT</div><h3>🛡️ Bounty Board</h3><p>Beat legendary games. Build iconic items. Earn a spot on the trophy wall.</p><span class="arrow">Explore series →</span></a><a class="card" href="#beat-yeet"><div class="tag">02 / RACE AGAINST TIME</div><h3>⏱️ Beat It or Yeet It</h3><p>Can Steven finish the challenge before the 3D printer finishes the prize?</p><span class="arrow">Explore series →</span></a></div></section>
-<section class="section" id="bounty-board"><div class="eyebrow">Featured series</div><h2>The Bounty Board: Zelda Edition</h2><p>Adventure through Ocarina of Time while building a full-size Hylian Shield trophy. The Deku Shield is planned as a giveaway item. The quest is just beginning.</p><div class="actions"><a class="btn secondary" href="#contact">Follow the launch</a></div></section>
-<section class="section" id="beat-yeet"><div class="eyebrow">Coming soon</div><h2>Beat It or Yeet It</h2><p>One game challenge. One running 3D printer. Beat the clock or risk losing the build.</p></section>
-<section class="section" id="venture-squad"><div class="eyebrow">The community</div><h2>Join the Venture Squad</h2><p>Help shape challenges, celebrate wins, and be part of the next adventure. Community links and events will be added here.</p></section>
-<section class="section" id="print-it-forward"><div class="eyebrow">More than games</div><h2>Print It Forward</h2><p>Chase the Challenge. Change the World. We're building a community-driven initiative to use 3D printing and creativity to help people. Project details will be shared as they are confirmed.</p></section>
-<section class="banner" id="contact"><h2>Ready for the next challenge?</h2><p>StevenVsUniverse is getting ready to launch. Follow along as we build the adventures, the community, and the impact.</p><p class="small">YouTube, Discord, and contact links coming soon.</p></section></main>
-<footer>© <span id="year">2026</span> StevenVsUniverse · Chase the Challenge.</footer>
-<script>document.getElementById('year').textContent=new Date().getFullYear();</script>
-</body></html>
+
+<header>
+
+<div class="logo">STEVEN<span>VS</span>UNIVERSE</div>
+
+<nav>
+
+<a href="#games">Games</a>
+
+<a href="#bounty">Bounty Board</a>
+
+<a href="#squad">Venture Squad</a>
+
+<a href="#forward">Print It Forward</a>
+
+<a href="#contact">Connect</a>
+
+</nav>
+
+</header>
+
+<div class="hero">
+
+<div class="eyebrow">WELCOME TO THE UNIVERSE</div>
+
+<h1>CHASE THE<br><span class="red">CHALLENGE.</span></h1>
+
+<p>Epic gaming challenges. Massive 3D prints. Ridiculous adventures. One community ready to take on the world.</p>
+
+<a class="btn" href="#games">START YOUR ADVENTURE</a>
+
+<a class="btn alt" href="#squad">JOIN VENTURE SQUAD</a>
+
+</div>
+
+<section id="games">
+
+<div class="eyebrow">SELECT YOUR GAME MODE</div>
+
+<h2>StevenVsGames</h2>
+
+<p>Every game has a challenge. Every challenge has something on the line.</p>
+
+<div class="grid">
+
+<div class="card">
+
+<div class="symbol">🛡️</div>
+
+<span class="tag">FEATURED SERIES</span>
+
+<h3>Bounty Board</h3>
+
+<p>Defeat the bosses. Build legendary items. Claim the bounty and display it on the trophy wall.</p>
+
+<a href="#bounty">VIEW THE BOUNTY →</a>
+
+</div>
+
+<div class="card">
+
+<div class="symbol">⏳</div>
+
+<span class="tag">HIGH-STAKES CHALLENGE</span>
+
+<h3>Beat It or Yeet It</h3>
+
+<p>Beat the game before the 3D printer finishes. Lose the challenge and the print gets given away.</p>
+
+<a href="#contact">COMING SOON →</a>
+
+</div>
+
+<div class="card">
+
+<div class="symbol">🎮</div>
+
+<span class="tag">LIVE ADVENTURES</span>
+
+<h3>StevenVsStreaming</h3>
+
+<p>Interactive challenges, community events and gaming chaos.</p>
+
+<a href="#squad">MEET THE COMMUNITY →</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="bounty">
+
+<div class="eyebrow">CURRENT QUEST</div>
+
+<h2>🗡️ The Legend of Zelda</h2>
+
+<div class="banner">
+
+<span class="tag">OCARINA OF TIME • N64</span>
+
+<h3>The Hylian Shield Bounty</h3>
+
+<p>Our first legendary trophy: a full-size 3D-printed Hylian Shield. Defeat the bosses, finish the build, and earn a place on the Bounty Board.</p>
+
+<p>Plus, a 3D-printed Deku Shield is planned as a community giveaway. Official entry details will be announced separately.</p>
+
+<a class="btn" href="#contact">FOLLOW THE ADVENTURE</a>
+
+</div>
+
+</section>
+
+<section id="squad">
+
+<div class="eyebrow">PLAYER COMMUNITY</div>
+
+<h2>Welcome, Venture Squad!</h2>
+
+<p>You're not just watching the adventure. You're part of it. Community challenges, seasonal collectibles and future events are coming.</p>
+
+<div class="grid">
+
+<div class="card"><div class="symbol">🏆</div><h3>Seasonal Rewards</h3><p>Unlock future digital collectibles and achievements through challenges.</p></div>
+
+<div class="card"><div class="symbol">🎯</div><h3>Community Quests</h3><p>Take on challenges together and help shape upcoming adventures.</p></div>
+
+</div>
+
+</section>
+
+<section id="forward">
+
+<div class="eyebrow">CHASE THE CHALLENGE. CHANGE THE WORLD.</div>
+
+<h2>Print It Forward</h2>
+
+<p>Turning creativity into real-world impact through 3D printing, community support and projects that help people in need.</p>
+
+<div class="banner">
+
+<h3>Building Something Bigger</h3>
+
+<p>Our mission includes practical assistive tools, community projects and transparent updates as initiatives launch.</p>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<div class="eyebrow">YOUR NEXT QUEST</div>
+
+<h2>Connect With The Universe</h2>
+
+<p>Follow the journey on YouTube and join the Venture Squad community. Official links are being added.</p>
+
+<div class="grid">
+
+<div class="card"><div class="symbol">▶️</div><h3>YouTube</h3><p>Gaming challenges, 3D prints and adventures.</p><span class="tag">LINK COMING SOON</span></div>
+
+<div class="card"><div class="symbol">💬</div><h3>Discord</h3><p>Join the Venture Squad community.</p><span class="tag">LINK COMING SOON</span></div>
+
+</div>
+
+</section>
+
+<footer>
+
+<strong>STEVENVSUNIVERSE</strong>
+
+<p>Chase the Challenge. Change the World.</p>
+
+<p>© 2026 StevenVsUniverse</p>
+
+</footer>
+
+</body>
+
+</html>
