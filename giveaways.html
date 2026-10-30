@@ -1,0 +1,565 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#080e1e">
+
+<title>Giveaway Center | StevenVsUniverse</title>
+
+<style>
+:root {
+  --red: #f43f56;
+  --blue: #3b82f6;
+  --bg: #080e1e;
+  --panel: #14233e;
+  --muted: #b5c3da;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a { color: #9ac4ff; }
+
+header {
+  padding: 20px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #324567;
+}
+
+.brand {
+  font-size: 22px;
+  font-weight: 900;
+  color: white;
+  text-decoration: none;
+}
+
+.brand span { color: var(--red); }
+
+nav {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #cad7eb;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.hero {
+  text-align: center;
+  padding: 85px 5% 75px;
+  background:
+    radial-gradient(
+      ellipse at 25% 15%,
+      #1d4787 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 85% 80%,
+      #601b35 0%,
+      transparent 50%
+    ),
+    var(--bg);
+}
+
+.eyebrow {
+  color: #9ec4ff;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 3px;
+}
+
+h1 {
+  font-size: clamp(44px, 9vw, 86px);
+  margin: 18px 0;
+}
+
+h2 {
+  font-size: clamp(28px, 5vw, 42px);
+  margin: 12px 0;
+}
+
+h3 { font-size: 24px; }
+
+p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.hero p {
+  max-width: 650px;
+  margin: 0 auto 25px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--red);
+  color: white;
+  padding: 14px 22px;
+  margin: 5px;
+  border-radius: 10px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn.secondary {
+  background: #203c66;
+  border: 1px solid #4973ae;
+}
+
+.wrap {
+  max-width: 1150px;
+  margin: auto;
+  padding: 55px 5%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(250px, 1fr));
+  gap: 22px;
+  margin-top: 25px;
+}
+
+.card {
+  border: 1px solid #35527b;
+  border-radius: 18px;
+  background: linear-gradient(
+    145deg, #182d4c, #10192d
+  );
+  overflow: hidden;
+}
+
+.card-content { padding: 25px; }
+
+.card img {
+  display: block;
+  width: 100%;
+  height: 380px;
+  object-fit: contain;
+  background: #12213a;
+}
+
+.tag {
+  display: inline-block;
+  background: #243e69;
+  color: #c5ddff;
+  border-radius: 30px;
+  padding: 7px 12px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.status {
+  display: inline-block;
+  background: #38263b;
+  color: #ffb8c4;
+  border: 1px solid #a24b65;
+  padding: 8px 13px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.slot {
+  padding: 45px 20px;
+  text-align: center;
+  border: 2px dashed #385077;
+  border-radius: 16px;
+  background: #111c31;
+}
+
+.slot .symbol {
+  font-size: 40px;
+}
+
+.note {
+  background: #132541;
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+  padding: 22px;
+  margin-top: 25px;
+}
+
+.rules {
+  background: #111e34;
+  border: 1px solid #35527b;
+  border-radius: 18px;
+  padding: 25px;
+}
+
+.rules li {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+footer {
+  padding: 35px 20px;
+  text-align: center;
+  border-top: 1px solid #2c4264;
+}
+
+@media (max-width: 600px) {
+  header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero { padding-top: 65px; }
+
+  .card img { height: 300px; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <a class="brand" href="index.html">
+    STEVEN<span>VS</span>UNIVERSE
+  </a>
+
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#featured">Featured</a>
+    <a href="#upcoming">Upcoming</a>
+    <a href="#rules">Rules</a>
+    <a href="venture-squad.html">Venture Squad</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+
+  <div class="eyebrow">
+    STEVENV SUNIVERSE • COMMUNITY REWARDS
+  </div>
+
+  <h1>
+    GIVEAWAY
+    <span style="color:var(--red)">
+      CENTER
+    </span>
+  </h1>
+
+  <p>
+    Epic builds. Real rewards. More adventures.
+    Follow upcoming 3D-printed gaming giveaways
+    and special Venture Squad events.
+  </p>
+
+  <a class="btn" href="#featured">
+    EXPLORE GIVEAWAYS
+  </a>
+
+  <a class="btn secondary"
+     href="venture-squad.html">
+    VENTURE SQUAD
+  </a>
+
+</section>
+
+<main>
+
+<!-- FEATURED GIVEAWAY -->
+<section class="wrap" id="featured">
+
+  <div class="eyebrow">
+    GIVEAWAY #001 • ZELDA EDITION
+  </div>
+
+  <h2>Featured Giveaway</h2>
+
+  <div class="grid">
+
+    <article class="card">
+
+      <img
+        src="./deku-shield.PNG"
+        alt="Steven's 3D-printed Deku Shield"
+        loading="lazy"
+      >
+
+      <div class="card-content">
+
+        <span class="status">
+          COMING SOON • NOT OPEN
+        </span>
+
+        <h3>Zelda Deku Shield</h3>
+
+        <p>
+          The first planned StevenVsGames
+          community giveaway features a
+          custom 3D-printed Deku Shield
+          from The Legend of Zelda:
+          Ocarina of Time.
+        </p>
+
+        <p>
+          Giveaway dates, eligibility,
+          entry instructions, and official
+          rules will be published here
+          before entries open.
+        </p>
+
+        <a class="btn secondary"
+           href="bounty-board.html">
+          VIEW THE BOUNTY
+        </a>
+
+      </div>
+    </article>
+
+    <div class="card">
+      <div class="card-content">
+
+        <span class="tag">
+          GIVEAWAY DETAILS
+        </span>
+
+        <h3>Quest Information</h3>
+
+        <p>
+          <strong>Prize:</strong>
+          3D-Printed Deku Shield
+        </p>
+
+        <p>
+          <strong>Series:</strong>
+          StevenVsGames Bounty Board
+        </p>
+
+        <p>
+          <strong>Entry Status:</strong>
+          Not Open
+        </p>
+
+        <p>
+          <strong>Start Date:</strong>
+          To Be Announced
+        </p>
+
+        <p>
+          <strong>Winner:</strong>
+          Not Selected
+        </p>
+
+        <div class="note">
+          <strong>Important Notice</strong>
+
+          <p>
+            This giveaway is not accepting
+            entries yet. Joining Discord
+            or visiting this page does not
+            count as an entry.
+          </p>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- UPCOMING GIVEAWAYS -->
+<section class="wrap" id="upcoming">
+
+  <div class="eyebrow">
+    MORE REWARDS AHEAD
+  </div>
+
+  <h2>Upcoming Giveaways</h2>
+
+  <div class="grid">
+
+    <div class="slot">
+      <div class="symbol">🎁</div>
+      <h3>Mystery Gaming Print</h3>
+      <p>Future giveaway to be announced.</p>
+      <span class="tag">LOCKED</span>
+    </div>
+
+    <div class="slot">
+      <div class="symbol">🏆</div>
+      <h3>Beat It or Yeet It</h3>
+      <p>
+        Future challenge prizes may
+        become community giveaways.
+      </p>
+      <span class="tag">COMING SOON</span>
+    </div>
+
+    <div class="slot">
+      <div class="symbol">❓</div>
+      <h3>Secret Reward</h3>
+      <p>
+        New adventures may unlock
+        additional community rewards.
+      </p>
+      <span class="tag">LOCKED</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- GIVEAWAY RULES -->
+<section class="wrap" id="rules">
+
+  <div class="eyebrow">
+    FAIR PLAY FOR EVERYONE
+  </div>
+
+  <h2>Giveaway Information & Rules</h2>
+
+  <div class="rules">
+
+    <p>
+      Each giveaway will have its own
+      official rules published before
+      entries open.
+    </p>
+
+    <ul>
+      <li>
+        Entry periods, eligibility,
+        geographic restrictions, and
+        age requirements will be stated
+        in the official rules.
+      </li>
+
+      <li>
+        The entry method, winner selection
+        process, and prize delivery details
+        will be announced before the
+        giveaway begins.
+      </li>
+
+      <li>
+        No purchase will be necessary
+        to enter or win.
+      </li>
+
+      <li>
+        YouTube subscriptions, likes,
+        and other platform engagement
+        will not be required as
+        giveaway entry conditions.
+      </li>
+
+      <li>
+        Winners will be contacted
+        using the method specified
+        in the official rules.
+      </li>
+
+      <li>
+        Giveaways are not currently
+        open for entry.
+      </li>
+    </ul>
+
+    <div class="note">
+      <strong>Stay Safe</strong>
+
+      <p>
+        Never send money or payment
+        information to someone claiming
+        you won a StevenVsUniverse
+        giveaway. Verify announcements
+        through our official channels.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- WINNERS -->
+<section class="wrap" id="winners">
+
+  <div class="eyebrow">
+    HALL OF CHAMPIONS
+  </div>
+
+  <h2>Past Winners</h2>
+
+  <div class="slot">
+    <div class="symbol">🏆</div>
+    <h3>No Winners Yet</h3>
+    <p>
+      When our first giveaway concludes,
+      winner announcements will appear
+      here when appropriate and permitted.
+    </p>
+  </div>
+
+</section>
+
+<!-- COMMUNITY -->
+<section class="wrap">
+
+  <div class="note">
+
+    <h2>Join the Adventure</h2>
+
+    <p>
+      Join Venture Squad for community
+      conversations, gaming challenges,
+      and future giveaway announcements.
+    </p>
+
+    <a class="btn"
+       href="venture-squad.html">
+      EXPLORE VENTURE SQUAD
+    </a>
+
+    <a class="btn secondary"
+       href="https://discord.gg/Z2s77Np"
+       target="_blank"
+       rel="noopener noreferrer">
+      JOIN DISCORD
+    </a>
+
+  </div>
+
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <strong>STEVENVSUNIVERSE</strong>
+
+  <p>
+    Chase the Challenge.
+    Change the World.
+  </p>
+
+  <a href="index.html">
+    Return to Homepage
+  </a>
+</footer>
+
+</body>
+</html>
