@@ -6,687 +6,649 @@
 
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <meta name="theme-color" content="#080e1e">
+<meta name="theme-color" content="#080e1e">
 
-  <title>Bounty Board | StevenVsUniverse</title>
+<title>Bounty Board | StevenVsUniverse</title>
 
-  <style>
+<style>
 
-    :root {
+:root {
 
-      --red: #f43f56;
+  --red: #f43f56;
 
-      --blue: #3b82f6;
+  --blue: #3b82f6;
 
-      --bg: #080e1e;
+  --bg: #080e1e;
 
-      --panel: #14233e;
+  --panel: #14233e;
 
-      --muted: #b5c3da;
+  --muted: #b5c3da;
 
-    }
+}
 
-    * {
+* { box-sizing: border-box; }
 
-      box-sizing: border-box;
+html { scroll-behavior: smooth; }
 
-    }
+body {
 
-    html {
+  margin: 0;
 
-      scroll-behavior: smooth;
+  background: var(--bg);
 
-    }
+  color: white;
 
-    body {
+  font-family: Arial, Helvetica, sans-serif;
 
-      margin: 0;
+}
 
-      background: var(--bg);
+a { color: #9ac4ff; }
 
-      color: white;
+header {
 
-      font-family: Arial, Helvetica, sans-serif;
+  padding: 20px 5%;
 
-    }
+  display: flex;
 
-    a {
+  justify-content: space-between;
 
-      color: #9ac4ff;
+  align-items: center;
 
-    }
+  gap: 16px;
 
-    header {
+  flex-wrap: wrap;
 
-      padding: 20px 5%;
+  border-bottom: 1px solid #324567;
 
-      display: flex;
+}
 
-      justify-content: space-between;
+.brand {
 
-      align-items: center;
+  font-size: 22px;
 
-      gap: 16px;
+  font-weight: 900;
 
-      flex-wrap: wrap;
+  color: white;
 
-      border-bottom: 1px solid #324567;
+  text-decoration: none;
 
-    }
+}
 
-    .brand {
+.brand span { color: var(--red); }
 
-      font-size: 22px;
+nav {
 
-      font-weight: 900;
+  display: flex;
 
-      color: white;
+  gap: 16px;
 
-      text-decoration: none;
+  flex-wrap: wrap;
 
-    }
+}
 
-    .brand span {
+nav a {
 
-      color: var(--red);
+  text-decoration: none;
 
-    }
+  color: #cad7eb;
 
-    nav {
+  font-size: 14px;
 
-      display: flex;
+}
 
-      gap: 16px;
+.hero {
 
-      flex-wrap: wrap;
+  text-align: center;
 
-    }
+  padding: 85px 5% 65px;
 
-    nav a {
+  background: radial-gradient(
 
-      text-decoration: none;
+    ellipse at top,
 
-      color: #cad7eb;
+    #204a86 0%,
 
-      font-size: 14px;
+    #080e1e 72%
 
-    }
+  );
 
-    .hero {
+}
 
-      text-align: center;
+.eyebrow {
 
-      padding: 85px 5% 65px;
+  color: #9ec4ff;
 
-      background: radial-gradient(
+  letter-spacing: 3px;
 
-        ellipse at top,
+  font-size: 12px;
 
-        #204a86 0%,
+  font-weight: bold;
 
-        #080e1e 72%
+}
 
-      );
+h1 {
 
-    }
+  font-size: clamp(44px, 9vw, 86px);
 
-    .eyebrow {
+  margin: 18px 0;
 
-      color: #9ec4ff;
+}
 
-      letter-spacing: 3px;
+h2 {
 
-      font-size: 12px;
+  font-size: clamp(28px, 5vw, 42px);
 
-      font-weight: bold;
+  margin: 12px 0;
 
-    }
+}
 
-    h1 {
+p {
 
-      font-size: clamp(44px, 9vw, 86px);
+  line-height: 1.65;
 
-      margin: 18px 0;
+  color: var(--muted);
 
-    }
+}
 
-    h2 {
+.hero p {
 
-      font-size: clamp(28px, 5vw, 42px);
+  max-width: 650px;
 
-      margin: 12px 0;
+  margin: 0 auto 24px;
 
-    }
+}
 
-    p {
+.btn {
 
-      line-height: 1.65;
+  display: inline-block;
 
-      color: var(--muted);
+  border-radius: 10px;
 
-    }
+  padding: 14px 20px;
 
-    .hero p {
+  background: var(--red);
 
-      max-width: 650px;
+  color: white;
 
-      margin: 0 auto 24px;
+  text-decoration: none;
 
-    }
+  font-weight: bold;
 
-    .btn {
+  margin: 5px;
 
-      display: inline-block;
+}
 
-      border-radius: 10px;
+.btn.secondary {
 
-      padding: 14px 20px;
+  background: #203c66;
 
-      background: var(--red);
+  border: 1px solid #4973ae;
 
-      color: white;
+}
 
-      text-decoration: none;
+.wrap {
 
-      font-weight: bold;
+  max-width: 1150px;
 
-      margin: 5px;
+  margin: auto;
 
-    }
+  padding: 55px 5%;
 
-    .btn.secondary {
+}
 
-      background: #203c66;
+.grid {
 
-      border: 1px solid #4973ae;
+  display: grid;
 
-    }
+  grid-template-columns: repeat(
 
-    .wrap {
+    auto-fit,
 
-      max-width: 1150px;
+    minmax(260px, 1fr)
 
-      margin: auto;
+  );
 
-      padding: 55px 5%;
+  gap: 22px;
 
-    }
+  margin-top: 25px;
 
-    .grid {
+}
 
-      display: grid;
+.card {
 
-      grid-template-columns: repeat(
+  background: linear-gradient(
 
-        auto-fit,
+    145deg,
 
-        minmax(260px, 1fr)
+    #182d4c,
 
-      );
+    #10192d
 
-      gap: 22px;
+  );
 
-      margin-top: 25px;
+  border: 1px solid #35527b;
 
-    }
+  border-radius: 18px;
 
-    .card {
+  overflow: hidden;
 
-      background: linear-gradient(
+  transition: transform 0.2s ease;
 
-        145deg,
+}
 
-        #182d4c,
+.card:hover {
 
-        #10192d
+  transform: translateY(-5px);
 
-      );
+}
 
-      border: 1px solid #35527b;
+.card img {
 
-      border-radius: 18px;
+  display: block;
 
-      overflow: hidden;
+  width: 100%;
 
-      transition: transform 0.2s ease;
+  height: 360px;
 
-    }
+  object-fit: contain;
 
-    .card:hover {
+  background: #12213a;
 
-      transform: translateY(-5px);
+}
 
-    }
+.content { padding: 23px; }
 
-    .card img {
+.tag {
 
-      display: block;
+  display: inline-block;
 
-      width: 100%;
+  background: #243e69;
 
-      height: 360px;
+  color: #c5ddff;
 
-      object-fit: contain;
+  padding: 7px 11px;
 
-      background: #12213a;
+  border-radius: 30px;
 
-    }
+  font-size: 12px;
 
-    .content {
+  font-weight: bold;
 
-      padding: 23px;
+}
 
-    }
+.card h3 {
 
-    .tag {
+  font-size: 25px;
 
-      display: inline-block;
+  margin: 14px 0 8px;
 
-      background: #243e69;
+}
 
-      color: #c5ddff;
+.slot {
 
-      padding: 7px 11px;
+  border: 2px dashed #385077;
 
-      border-radius: 30px;
+  border-radius: 16px;
 
-      font-size: 12px;
+  padding: 50px 20px;
 
-      font-weight: bold;
+  text-align: center;
 
-    }
+  color: #9bb1d0;
 
-    .card h3 {
+  background: #111c31;
 
-      font-size: 25px;
+}
 
-      margin: 14px 0 8px;
+.slot strong {
 
-    }
+  display: block;
 
-    .slot {
+  font-size: 36px;
 
-      border: 2px dashed #385077;
+  margin-bottom: 10px;
 
-      border-radius: 16px;
+}
 
-      padding: 50px 20px;
+.note {
 
-      text-align: center;
+  background: #132541;
 
-      color: #9bb1d0;
+  border-left: 4px solid var(--blue);
 
-      background: #111c31;
+  border-radius: 8px;
 
-    }
+  padding: 20px;
 
-    .slot strong {
+  margin-top: 25px;
 
-      display: block;
+}
 
-      font-size: 36px;
+footer {
 
-      margin-bottom: 10px;
+  text-align: center;
 
-    }
+  padding: 35px 20px;
 
-    .note {
+  border-top: 1px solid #2c4264;
 
-      background: #132541;
+  color: #9fb0cb;
 
-      border-left: 4px solid var(--blue);
+}
 
-      border-radius: 8px;
+@media (max-width: 600px) {
 
-      padding: 20px;
+  header {
 
-      margin-top: 25px;
+    justify-content: center;
 
-    }
+    text-align: center;
 
-    footer {
+  }
 
-      text-align: center;
+  .card img { height: 300px; }
 
-      padding: 35px 20px;
+  .hero { padding-top: 65px; }
 
-      border-top: 1px solid #2c4264;
+}
 
-      color: #9fb0cb;
-
-    }
-
-    @media (max-width: 600px) {
-
-      header {
-
-        justify-content: center;
-
-        text-align: center;
-
-      }
-
-      .card img {
-
-        height: 300px;
-
-      }
-
-      .hero {
-
-        padding-top: 65px;
-
-      }
-
-    }
-
-  </style>
+</style>
 
 </head>
 
 <body>
 
-  <!-- NAVIGATION -->
+<!-- NAVIGATION -->
 
-  <header>
+<header>
 
-    <a class="brand" href="index.html">
+  <a class="brand" href="index.html">
 
-      STEVEN<span>VS</span>UNIVERSE
+    STEVEN<span>VS</span>UNIVERSE
+
+  </a>
+
+  <nav>
+
+    <a href="index.html">Home</a>
+
+    <a href="#trophies">Trophies</a>
+
+    <a href="#giveaway">Giveaway</a>
+
+    <a href="https://www.youtube.com/@StevenVsGames"
+
+       target="_blank" rel="noopener noreferrer">
+
+      YouTube
 
     </a>
 
-    <nav>
+  </nav>
 
-      <a href="index.html">Home</a>
+</header>
 
-      <a href="#trophies">Trophies</a>
+<!-- HERO -->
 
-      <a href="#giveaway">Giveaway</a>
+<div class="hero">
 
-      <a href="https://www.youtube.com/@StevenVsGames"
+  <div class="eyebrow">
 
-         target="_blank"
+    STEVENVSGAMES • CHALLENGE SERIES
 
-         rel="noopener noreferrer">
+  </div>
 
-        YouTube
+  <h1>
 
-      </a>
+    BOUNTY
 
-    </nav>
+    <span style="color:var(--red)">BOARD</span>
 
-  </header>
+  </h1>
 
-  <!-- HERO -->
+  <p>
 
-  <div class="hero">
+    Defeat legendary bosses. Build iconic gaming
 
-    <div class="eyebrow">
+    collectibles. Earn a trophy for the wall.
 
-      STEVENVSGAMES • CHALLENGE SERIES
+    Every adventure comes with a new challenge.
 
-    </div>
+  </p>
 
-    <h1>
+  <a class="btn" href="#trophies">
 
-      BOUNTY
+    EXPLORE THE TROPHIES
 
-      <span style="color: var(--red)">
+  </a>
 
-        BOARD
+  <a class="btn secondary"
 
-      </span>
+     href="https://www.youtube.com/@StevenVsGames"
 
-    </h1>
+     target="_blank" rel="noopener noreferrer">
+
+    WATCH ON YOUTUBE
+
+  </a>
+
+</div>
+
+<main>
+
+<!-- ZELDA BOUNTY -->
+
+<section class="wrap" id="trophies">
+
+  <div class="eyebrow">
+
+    QUEST 001 • THE LEGEND OF ZELDA
+
+  </div>
+
+  <h2>Ocarina of Time — N64</h2>
+
+  <p>
+
+    Steven takes on Hyrule's bosses while building
+
+    a full-size Hylian Shield. The shield is the
+
+    legendary prize for the Bounty Board trophy wall.
+
+  </p>
+
+  <div class="grid">
+
+    <!-- HYLIAN SHIELD -->
+
+    <article class="card">
+
+      <img
+
+        src="./hylian-shield.PNG"
+
+        alt="Full-size 3D-printed Hylian Shield"
+
+        loading="lazy"
+
+      >
+
+      <div class="content">
+
+        <span class="tag">
+
+          BOUNTY #001 • TROPHY
+
+        </span>
+
+        <h3>Hylian Shield</h3>
+
+        <p>
+
+          Built, finished, and earned for the wall.
+
+          The centerpiece of our first Bounty Board
+
+          adventure.
+
+        </p>
+
+      </div>
+
+    </article>
+
+    <!-- DEKU SHIELD -->
+
+    <article class="card" id="giveaway">
+
+      <img
+
+        src="./deku-shield.PNG"
+
+        alt="3D-printed Deku Shield giveaway"
+
+        loading="lazy"
+
+      >
+
+      <div class="content">
+
+        <span class="tag">
+
+          COMMUNITY GIVEAWAY • COMING SOON
+
+        </span>
+
+        <h3>Deku Shield</h3>
+
+        <p>
+
+          A special community giveaway is planned.
+
+          Official rules, entry dates, and eligibility
+
+          details will be announced before it opens.
+
+        </p>
+
+      </div>
+
+    </article>
+
+  </div>
+
+  <!-- COMMUNITY LINKS -->
+
+  <div class="note">
+
+    <strong>
+
+      Episodes and build videos coming soon!
+
+    </strong>
 
     <p>
 
-      Defeat legendary bosses. Build iconic gaming
+      Follow the adventure on YouTube and join
 
-      collectibles. Earn a trophy for the wall.
+      Venture Squad for future announcements.
 
-      Every adventure comes with a new challenge.
+      No giveaway entries are being collected yet.
 
     </p>
 
-    <a class="btn" href="#trophies">
+    <a class="btn"
 
-      EXPLORE THE TROPHIES
+       href="https://www.youtube.com/@StevenVsGames"
+
+       target="_blank" rel="noopener noreferrer">
+
+      YOUTUBE
 
     </a>
 
     <a class="btn secondary"
 
-       href="https://www.youtube.com/@StevenVsGames"
+       href="https://discord.gg/Z2s77Np"
 
-       target="_blank"
+       target="_blank" rel="noopener noreferrer">
 
-       rel="noopener noreferrer">
-
-      WATCH ON YOUTUBE
+      VENTURE SQUAD DISCORD
 
     </a>
 
   </div>
 
-  <main>
+</section>
 
-    <!-- ZELDA BOUNTY -->
+<!-- FUTURE TROPHIES -->
 
-    <section class="wrap" id="trophies">
+<section class="wrap">
 
-      <div class="eyebrow">
+  <div class="eyebrow">
 
-        QUEST 001 • THE LEGEND OF ZELDA
+    THE COLLECTION GROWS
 
-      </div>
+  </div>
 
-      <h2>Ocarina of Time — N64</h2>
+  <h2>Future Bounties</h2>
 
-      <p>
+  <div class="grid">
 
-        Steven takes on Hyrule's bosses while building
+    <div class="slot">
 
-        a full-size Hylian Shield. The shield is the
+      <strong>?</strong>
 
-        legendary prize for the Bounty Board trophy wall.
+      LOCKED TROPHY SLOT
 
-      </p>
+    </div>
 
-      <div class="grid">
+    <div class="slot">
 
-        <!-- HYLIAN SHIELD -->
+      <strong>?</strong>
 
-        <article class="card">
+      LOCKED TROPHY SLOT
 
-          <img
+    </div>
 
-            src="./hylian-shield.png"
+    <div class="slot">
 
-            alt="Full-size 3D-printed Hylian Shield"
+      <strong>?</strong>
 
-            loading="lazy"
+      LOCKED TROPHY SLOT
 
-          >
+    </div>
 
-          <div class="content">
+  </div>
 
-            <span class="tag">
+</section>
 
-              BOUNTY #001 • TROPHY
+</main>
 
-            </span>
+<!-- FOOTER -->
 
-            <h3>Hylian Shield</h3>
+<footer>
 
-            <p>
+  <strong>STEVENVSUNIVERSE</strong>
 
-              Built, finished, and earned for the wall.
+  <p>
 
-              The centerpiece of our first Bounty Board
+    Chase the Challenge. Change the World.
 
-              adventure.
+  </p>
 
-            </p>
+  <a href="index.html">
 
-          </div>
+    Return to homepage
 
-        </article>
+  </a>
 
-        <!-- DEKU SHIELD -->
-
-        <article class="card" id="giveaway">
-
-          <img
-
-            src="./deku-shield.png"
-
-            alt="3D-printed Deku Shield giveaway"
-
-            loading="lazy"
-
-          >
-
-          <div class="content">
-
-            <span class="tag">
-
-              COMMUNITY GIVEAWAY • COMING SOON
-
-            </span>
-
-            <h3>Deku Shield</h3>
-
-            <p>
-
-              A special community giveaway is planned.
-
-              Official rules, entry dates, and eligibility
-
-              details will be announced before it opens.
-
-            </p>
-
-          </div>
-
-        </article>
-
-      </div>
-
-      <!-- COMMUNITY LINKS -->
-
-      <div class="note">
-
-        <strong>
-
-          Episodes and build videos coming soon!
-
-        </strong>
-
-        <p>
-
-          Follow the adventure on YouTube and join
-
-          Venture Squad for future announcements.
-
-        </p>
-
-        <a class="btn"
-
-           href="https://www.youtube.com/@StevenVsGames"
-
-           target="_blank"
-
-           rel="noopener noreferrer">
-
-          YOUTUBE
-
-        </a>
-
-        <a class="btn secondary"
-
-           href="https://discord.gg/Z2s77Np"
-
-           target="_blank"
-
-           rel="noopener noreferrer">
-
-          VENTURE SQUAD DISCORD
-
-        </a>
-
-      </div>
-
-    </section>
-
-    <!-- FUTURE TROPHIES -->
-
-    <section class="wrap">
-
-      <div class="eyebrow">
-
-        THE COLLECTION GROWS
-
-      </div>
-
-      <h2>Future Bounties</h2>
-
-      <div class="grid">
-
-        <div class="slot">
-
-          <strong>?</strong>
-
-          LOCKED TROPHY SLOT
-
-        </div>
-
-        <div class="slot">
-
-          <strong>?</strong>
-
-          LOCKED TROPHY SLOT
-
-        </div>
-
-        <div class="slot">
-
-          <strong>?</strong>
-
-          LOCKED TROPHY SLOT
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <strong>STEVENVSUNIVERSE</strong>
-
-    <p>
-
-      Chase the Challenge. Change the World.
-
-    </p>
-
-    <a href="index.html">
-
-      Return to homepage
-
-    </a>
-
-  </footer>
+</footer>
 
 </body>
 
