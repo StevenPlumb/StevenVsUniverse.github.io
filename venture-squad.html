@@ -1,873 +1,714 @@
 
-
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <meta name="theme-color" content="#080e1e">
-
-<title>Venture Squad | StevenVsUniverse</title>
+<title>Venture Squad HQ | StevenVsUniverse</title>
 
 <style>
-
 :root {
-
   --red: #f43f56;
-
   --blue: #3b82f6;
-
   --bg: #080e1e;
-
   --panel: #14233e;
-
   --muted: #b5c3da;
-
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
-
   margin: 0;
-
   background: var(--bg);
-
   color: white;
-
-  font-family: Arial, sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 a { color: #9ac4ff; }
 
 header {
-
   padding: 20px 5%;
-
   display: flex;
-
   justify-content: space-between;
-
   align-items: center;
-
   gap: 16px;
-
   flex-wrap: wrap;
-
   border-bottom: 1px solid #324567;
-
+  background: #0b1427;
 }
 
 .brand {
-
   font-size: 22px;
-
   font-weight: 900;
-
   color: white;
-
   text-decoration: none;
-
 }
 
 .brand span { color: var(--red); }
 
 nav {
-
   display: flex;
-
   gap: 16px;
-
   flex-wrap: wrap;
-
 }
 
 nav a {
-
   color: #cad7eb;
-
   text-decoration: none;
-
   font-size: 14px;
-
 }
 
+nav a:hover { color: white; }
+
 .hero {
-
   text-align: center;
-
-  padding: 85px 5% 75px;
-
+  padding: 90px 5% 80px;
   background:
-
-    radial-gradient(
-
-      ellipse at 25% 15%,
-
-      #1d4787 0%,
-
-      transparent 55%
-
-    ),
-
-    radial-gradient(
-
-      ellipse at 85% 80%,
-
-      #601b35 0%,
-
-      transparent 50%
-
-    ),
-
+    radial-gradient(ellipse at 20% 20%, #1d4787 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 80%, #601b35 0%, transparent 55%),
     var(--bg);
-
 }
 
 .eyebrow {
-
   color: #9ec4ff;
-
   font-size: 12px;
-
   font-weight: bold;
-
   letter-spacing: 3px;
-
 }
 
 h1 {
-
-  font-size: clamp(44px, 9vw, 86px);
-
+  font-size: clamp(48px, 10vw, 100px);
   margin: 18px 0;
-
+  line-height: 1.05;
 }
 
 h2 {
-
   font-size: clamp(28px, 5vw, 42px);
-
   margin: 12px 0;
-
 }
 
-h3 { font-size: 23px; }
+h3 {
+  font-size: 23px;
+  margin: 12px 0;
+}
 
 p {
-
   color: var(--muted);
-
   line-height: 1.7;
-
 }
 
 .hero p {
-
-  max-width: 650px;
-
-  margin: 0 auto 25px;
-
+  max-width: 680px;
+  margin: 0 auto 28px;
 }
 
 .btn {
-
   display: inline-block;
-
   background: var(--red);
-
   color: white;
-
   padding: 14px 22px;
-
   margin: 5px;
-
   border-radius: 10px;
-
   font-weight: bold;
-
   text-decoration: none;
+  transition: transform .2s, background .2s;
+}
 
+.btn:hover {
+  transform: translateY(-3px);
+  background: #ff5368;
 }
 
 .btn.secondary {
-
   background: #203c66;
-
   border: 1px solid #4973ae;
-
 }
 
+.btn.secondary:hover { background: #2c5189; }
+
 .wrap {
-
   max-width: 1150px;
-
   margin: auto;
-
   padding: 55px 5%;
-
 }
 
 .grid {
-
   display: grid;
-
-  grid-template-columns:
-
-    repeat(auto-fit, minmax(250px, 1fr));
-
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 22px;
-
   margin-top: 25px;
-
 }
 
 .card {
-
-  padding: 25px;
-
+  padding: 26px;
   border-radius: 18px;
-
   border: 1px solid #35527b;
+  background: linear-gradient(145deg, #182d4c, #10192d);
+  transition: transform .2s, border-color .2s;
+}
 
-  background: linear-gradient(
-
-    145deg, #182d4c, #10192d
-
-  );
-
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--blue);
 }
 
 .card .symbol {
-
-  font-size: 40px;
-
+  font-size: 42px;
   margin-bottom: 15px;
-
 }
 
-.card h3 {
+.card p { min-height: 65px; }
 
-  margin: 10px 0;
-
+.card a {
+  display: inline-block;
+  margin-top: 8px;
+  font-weight: bold;
 }
 
 .tag {
-
   display: inline-block;
-
   background: #243e69;
-
   color: #c5ddff;
-
   border-radius: 30px;
-
   padding: 7px 12px;
-
   font-size: 12px;
-
   font-weight: bold;
-
-}
-
-.token {
-
-  text-align: center;
-
-  padding: 30px 20px;
-
-  border: 1px solid #35527b;
-
-  border-radius: 18px;
-
-  background: #111d33;
-
-}
-
-.coin {
-
-  display: flex;
-
-  justify-content: center;
-
-  align-items: center;
-
-  width: 125px;
-
-  height: 125px;
-
-  margin: 0 auto 20px;
-
-  border-radius: 50%;
-
-  border: 7px solid #d6a945;
-
-  background: linear-gradient(
-
-    145deg, #ffdc72, #916014
-
-  );
-
-  color: #33210a;
-
-  font-size: 45px;
-
-  font-weight: 900;
-
-  box-shadow: 0 0 30px #d6a94533;
-
-}
-
-.coin.platinum {
-
-  border-color: #dbe7ff;
-
-  background: linear-gradient(
-
-    145deg, #f4f8ff, #778cab
-
-  );
-
-  color: #23334c;
-
-}
-
-.coin.locked {
-
-  border-color: #40516c;
-
-  background: #1b2940;
-
-  color: #93a5c1;
-
 }
 
 .note {
-
   background: #132541;
-
   border-left: 4px solid var(--blue);
-
   border-radius: 8px;
-
   padding: 22px;
-
   margin-top: 25px;
-
 }
+
+/* COMMUNITY BANNER */
+
+.squad-banner {
+  text-align: center;
+  border: 1px solid #385b8d;
+  background: linear-gradient(125deg, #122d55, #24172e);
+  border-radius: 20px;
+  padding: 35px 22px;
+  margin-top: 30px;
+}
+
+.squad-banner strong {
+  display: block;
+  font-size: clamp(22px, 4vw, 34px);
+  margin-bottom: 10px;
+}
+
+.squad-banner p {
+  margin: 8px auto 20px;
+  max-width: 600px;
+}
+
+/* ACHIEVEMENT VAULT */
+
+.token {
+  text-align: center;
+  padding: 30px 20px;
+  border: 1px solid #35527b;
+  border-radius: 18px;
+  background: #111d33;
+}
+
+.coin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 125px;
+  height: 125px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 7px solid #d6a945;
+  background: linear-gradient(145deg, #ffdc72, #916014);
+  color: #33210a;
+  font-size: 45px;
+  font-weight: 900;
+  box-shadow: 0 0 30px #d6a94533;
+}
+
+.coin.platinum {
+  border-color: #dbe7ff;
+  background: linear-gradient(145deg, #f4f8ff, #778cab);
+  color: #23334c;
+}
+
+.coin.locked {
+  border-color: #40516c;
+  background: #1b2940;
+  color: #93a5c1;
+}
+
+/* QUEST BOARD */
+
+.quest {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 22px;
+  border: 1px solid #35527b;
+  border-radius: 16px;
+  background: #111d33;
+  margin-top: 15px;
+}
+
+.quest-icon {
+  font-size: 34px;
+  flex-shrink: 0;
+}
+
+.quest h3 { margin: 0 0 8px; }
+.quest p { margin: 0 0 12px; }
+
+.quest-status {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: bold;
+  padding: 7px 12px;
+  border-radius: 20px;
+  background: #263b5d;
+  color: #c4d9fa;
+}
+
+/* GIVEAWAY FEATURE */
+
+.giveaway-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 25px;
+  align-items: center;
+  background: linear-gradient(145deg, #182d4c, #10192d);
+  border: 1px solid #35527b;
+  border-radius: 20px;
+  overflow: hidden;
+  margin-top: 25px;
+}
+
+.giveaway-feature img {
+  width: 100%;
+  height: 350px;
+  object-fit: contain;
+  background: #101b30;
+}
+
+.giveaway-content { padding: 25px; }
 
 footer {
-
   padding: 35px 20px;
-
   text-align: center;
-
   border-top: 1px solid #2c4264;
-
 }
 
-@media (max-width: 600px) {
-
+@media (max-width: 650px) {
   header {
-
     justify-content: center;
-
     text-align: center;
-
   }
 
   .hero { padding-top: 65px; }
 
+  .giveaway-feature {
+    grid-template-columns: 1fr;
+  }
+
+  .giveaway-feature img { height: 280px; }
+
+  .quest { gap: 12px; }
 }
-
 </style>
-
 </head>
 
 <body>
 
 <!-- HEADER -->
-
 <header>
-
   <a class="brand" href="index.html">
-
     STEVEN<span>VS</span>UNIVERSE
-
   </a>
 
   <nav>
-
     <a href="index.html">Home</a>
-
+    <a href="#headquarters">Headquarters</a>
     <a href="#vault">Achievements</a>
-
     <a href="#challenges">Challenges</a>
-
-    <a href="#giveaways">Giveaways</a>
-
+    <a href="giveaways.html">Giveaways</a>
   </nav>
-
 </header>
 
 <!-- HERO -->
-
 <section class="hero">
-
   <div class="eyebrow">
-
-    STEVENV SUNIVERSE • COMMUNITY HQ
-
+    STEVENVSUNIVERSE • COMMUNITY HQ
   </div>
 
   <h1>
-
     VENTURE
-
-    <span style="color:var(--red)">
-
-      SQUAD
-
-    </span>
-
+    <span style="color:var(--red)">SQUAD</span>
   </h1>
 
   <p>
-
-    Welcome to the Venture Squad!
-
     Every great adventure needs a team.
-
-    Join the community, chase challenges,
-
-    and help change the world.
-
+    Welcome to the Venture Squad, where we
+    chase challenges, collect achievements,
+    and work together to change the world.
   </p>
 
-  <a class="btn"
-
-     href="https://discord.gg/Z2s77Np"
-
-     target="_blank"
-
-     rel="noopener noreferrer">
-
+  <a
+    class="btn"
+    href="https://discord.gg/Z2s77Np"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     JOIN THE SQUAD
-
   </a>
 
   <a class="btn secondary" href="#vault">
-
     EXPLORE ACHIEVEMENTS
-
   </a>
-
 </section>
 
-<!-- COMMUNITY FEATURES -->
+<main>
 
-<section class="wrap">
+<!-- HEADQUARTERS -->
+<section class="wrap" id="headquarters">
 
   <div class="eyebrow">
-
     YOUR ADVENTURE STARTS HERE
-
   </div>
 
   <h2>Squad Headquarters</h2>
 
+  <p>
+    Explore everything the Venture Squad
+    has to offer. Your next adventure
+    is just one click away.
+  </p>
+
   <div class="grid">
 
     <div class="card">
-
       <div class="symbol">🏆</div>
-
       <h3>Achievement Vault</h3>
-
       <p>
-
-        Discover seasonal collectible tokens
-
-        inspired by StevenVsUniverse videos
-
-        and community challenges.
-
+        Discover collectible Gold and Platinum
+        tokens inspired by our gaming videos,
+        secret quests, and seasonal challenges.
       </p>
-
       <a href="#vault">Explore the Vault →</a>
-
     </div>
 
     <div class="card">
-
       <div class="symbol">🎁</div>
-
       <h3>Giveaway HQ</h3>
-
       <p>
-
-        Follow upcoming giveaways, including
-
-        special 3D-printed gaming collectibles.
-
+        Follow the five Zelda giveaway milestones,
+        watch our subscriber goals grow, and
+        discover future 3D-printed rewards.
       </p>
-
-      <a href="#giveaways">View Giveaways →</a>
-
+      <a href="giveaways.html">View Giveaways →</a>
     </div>
 
     <div class="card">
-
       <div class="symbol">⚔️</div>
-
       <h3>Community Challenges</h3>
-
       <p>
-
-        Take part in future gaming,
-
-        creative, and community challenges.
-
+        Take part in future gaming events,
+        secret video quests, and creative
+        community challenges.
       </p>
-
       <a href="#challenges">See Challenges →</a>
-
     </div>
 
     <div class="card">
-
       <div class="symbol">💙</div>
-
       <h3>Print It Forward</h3>
-
       <p>
-
-        Chase the Challenge.
-
-        Change the World.
-
-        Discover how the community can
-
-        make a difference together.
-
+        Chase the Challenge. Change the World.
+        Join future missions that use creativity
+        and 3D printing to help others.
       </p>
-
       <span class="tag">MORE COMING SOON</span>
-
     </div>
 
+  </div>
+
+  <div class="squad-banner">
+    <strong>CHASE THE CHALLENGE.</strong>
+    <strong style="color:var(--red)">
+      CHANGE THE WORLD.
+    </strong>
+    <p>
+      Join the Venture Squad and become
+      part of something bigger than the game.
+    </p>
+    <a
+      class="btn"
+      href="https://discord.gg/Z2s77Np"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      JOIN OUR DISCORD
+    </a>
   </div>
 
 </section>
 
 <!-- ACHIEVEMENT VAULT -->
-
 <section class="wrap" id="vault">
 
   <div class="eyebrow">
-
     COLLECT • UNLOCK • ACHIEVE
-
   </div>
 
   <h2>Achievement Vault</h2>
 
   <p>
-
-    Each season will introduce special
-
-    collectible tokens. Watch videos,
-
-    discover challenges, and earn
-
-    recognition as the community grows.
-
+    Every season will bring new challenges,
+    hidden quests, and collectible achievements.
+    Complete a quest during its active season
+    to pursue the limited Platinum version,
+    or work toward the Gold version later.
   </p>
 
   <div class="grid">
 
     <div class="token">
-
       <div class="coin platinum">VS</div>
-
-      <span class="tag">
-
-        LIMITED-TIME CONCEPT
-
-      </span>
-
+      <span class="tag">LIMITED-TIME CONCEPT</span>
       <h3>Platinum Token</h3>
-
       <p>
-
-        Planned for members who complete
-
-        a seasonal challenge before
-
+        Planned as a special achievement for
+        completing a seasonal challenge before
         its announced deadline.
-
       </p>
-
     </div>
 
     <div class="token">
-
       <div class="coin">VS</div>
-
-      <span class="tag">
-
-        STANDARD CONCEPT
-
-      </span>
-
+      <span class="tag">STANDARD CONCEPT</span>
       <h3>Gold Token</h3>
-
       <p>
-
         Planned as an ongoing achievement
-
-        that can still be earned after
-
-        a season's platinum deadline.
-
+        that remains obtainable even after
+        a season's Platinum deadline.
       </p>
-
     </div>
 
     <div class="token">
-
       <div class="coin locked">?</div>
-
-      <span class="tag">
-
-        LOCKED
-
-      </span>
-
+      <span class="tag">LOCKED</span>
       <h3>Mystery Achievement</h3>
-
       <p>
-
-        New achievements will be revealed
-
-        with future adventures.
-
+        New collectible achievements
+        will be revealed with future
+        StevenVsUniverse adventures.
       </p>
-
     </div>
 
   </div>
 
   <div class="note">
-
     <strong>Achievement system in development</strong>
-
     <p>
-
-      Tokens shown here are previews.
-
+      These tokens are previews of the future
+      Venture Squad achievement system.
       Member accounts, token claiming,
-
       and saved achievement progress
-
       are not active yet.
-
     </p>
-
   </div>
 
 </section>
 
-<!-- CHALLENGES -->
-
+<!-- CHALLENGE BOARD -->
 <section class="wrap" id="challenges">
 
   <div class="eyebrow">
-
     CHASE THE CHALLENGE
-
   </div>
 
-  <h2>Community Challenges</h2>
+  <h2>Community Quest Board</h2>
 
-  <div class="grid">
+  <p>
+    Future Venture Squad quests will give
+    the community new ways to participate,
+    have fun, and make a difference.
+  </p>
 
-    <div class="card">
-
-      <span class="tag">COMING SOON</span>
-
+  <div class="quest">
+    <div class="quest-icon">🔍</div>
+    <div>
       <h3>Video Secret Quests</h3>
-
       <p>
-
-        Find hidden phrases in future
-
-        StevenVsGames episodes to
-
-        unlock seasonal challenges.
-
+        Look for hidden phrases in future
+        StevenVsGames episodes. These will
+        become clues for seasonal achievements.
       </p>
-
+      <span class="quest-status">COMING SOON</span>
     </div>
+  </div>
 
-    <div class="card">
-
-      <span class="tag">COMING SOON</span>
-
+  <div class="quest">
+    <div class="quest-icon">🎮</div>
+    <div>
       <h3>Gaming Challenges</h3>
-
       <p>
-
-        Join community gaming events
-
-        and special challenge nights.
-
+        Join future gaming nights, tournaments,
+        and special Venture Squad events.
       </p>
-
+      <span class="quest-status">COMING SOON</span>
     </div>
+  </div>
 
-    <div class="card">
-
-      <span class="tag">COMING SOON</span>
-
+  <div class="quest">
+    <div class="quest-icon">🖨️</div>
+    <div>
       <h3>Print It Forward Missions</h3>
-
       <p>
-
-        Join future creative missions
-
-        that support people and
-
-        communities in need.
-
+        Help support future 3D-printing
+        projects designed to make a positive
+        difference in people's lives.
       </p>
-
+      <span class="quest-status">COMING SOON</span>
     </div>
+  </div>
 
+  <div class="quest">
+    <div class="quest-icon">🏆</div>
+    <div>
+      <h3>Bounty Board Adventures</h3>
+      <p>
+        Follow Steven as he defeats
+        legendary gaming bosses and builds
+        their iconic 3D-printed collectibles.
+      </p>
+      <a href="bounty-board.html">
+        Explore Bounty Board →
+      </a>
+    </div>
   </div>
 
 </section>
 
-<!-- GIVEAWAYS -->
-
+<!-- GIVEAWAY HQ -->
 <section class="wrap" id="giveaways">
 
   <div class="eyebrow">
-
     COMMUNITY REWARDS
-
   </div>
 
   <h2>Giveaway Headquarters</h2>
 
-  <div class="card">
+  <p>
+    Five Zelda rewards are waiting
+    on our milestone board. Follow
+    the community's progress toward
+    each subscriber goal.
+  </p>
 
-    <span class="tag">
+  <div class="giveaway-feature">
 
-      UPCOMING GIVEAWAY
+    <img
+      src="./deku-shield.PNG"
+      alt="Steven's 3D-printed Deku Shield"
+      loading="lazy"
+    >
 
-    </span>
+    <div class="giveaway-content">
+      <span class="tag">
+        UPCOMING GIVEAWAY
+      </span>
 
-    <h3>Zelda Deku Shield</h3>
+      <h3>Zelda Deku Shield</h3>
 
-    <p>
+      <p>
+        A special 3D-printed Deku Shield
+        is planned as the 2,500-subscriber
+        milestone reward.
+      </p>
 
-      A special 3D-printed Deku Shield
+      <p>
+        Entries are not open yet.
+        Official rules, eligibility,
+        and giveaway dates will be
+        announced before entries begin.
+      </p>
 
-      giveaway is planned for the
+      <a class="btn" href="giveaways.html">
+        VISIT GIVEAWAY CENTER
+      </a>
 
-      StevenVsGames community.
-
-    </p>
-
-    <p>
-
-      Entries are not open yet.
-
-      Official rules, eligibility,
-
-      and dates will be announced
-
-      before the giveaway begins.
-
-    </p>
-
-    <a class="btn secondary"
-
-       href="bounty-board.html">
-
-      VIEW BOUNTY BOARD
-
-    </a>
+      <a
+        class="btn secondary"
+        href="bounty-board.html"
+      >
+        VIEW BOUNTY BOARD
+      </a>
+    </div>
 
   </div>
 
 </section>
 
 <!-- JOIN DISCORD -->
-
 <section class="wrap">
 
-  <div class="note">
+  <div class="squad-banner">
+    <div class="eyebrow">
+      YOUR NEXT ADVENTURE AWAITS
+    </div>
 
-    <h2>Ready to Join the Adventure?</h2>
+    <h2>Ready to Join the Squad?</h2>
 
     <p>
-
-      Connect with the Venture Squad
-
-      on Discord for community
-
-      conversations and future announcements.
-
+      Meet fellow gamers and creators,
+      share your adventures, and stay
+      connected for future challenges
+      and community announcements.
     </p>
 
-    <a class="btn"
-
-       href="https://discord.gg/Z2s77Np"
-
-       target="_blank"
-
-       rel="noopener noreferrer">
-
+    <a
+      class="btn"
+      href="https://discord.gg/Z2s77Np"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       JOIN VENTURE SQUAD
-
     </a>
 
+    <a
+      class="btn secondary"
+      href="https://www.youtube.com/@StevenVsGames"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      WATCH STEVENVSGAMES
+    </a>
   </div>
 
 </section>
 
+</main>
+
 <!-- FOOTER -->
-
 <footer>
-
   <strong>STEVENVSUNIVERSE</strong>
 
   <p>
-
     Chase the Challenge.
-
     Change the World.
-
   </p>
 
   <a href="index.html">
-
     Return to Homepage
-
   </a>
-
 </footer>
 
 </body>
-
 </html>
