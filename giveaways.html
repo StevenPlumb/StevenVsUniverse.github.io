@@ -248,11 +248,18 @@ p {
 
 .milestone-track {
   display: flex;
+  flex-direction: column;
   gap: 18px;
-  overflow-x: auto;
-  padding: 12px 3px 25px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+  overflow: visible;
+  padding: 12px 0 25px;
+  scroll-snap-type: none;
+}
+
+.milestone {
+  flex: none;
+  width: 100%;
+  max-width: none;
+  scroll-snap-align: none;
 }
 
 .milestone {
