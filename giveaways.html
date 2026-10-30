@@ -18,7 +18,6 @@
 }
 
 * { box-sizing: border-box; }
-
 html { scroll-behavior: smooth; }
 
 body {
@@ -65,16 +64,8 @@ nav a {
   text-align: center;
   padding: 85px 5% 75px;
   background:
-    radial-gradient(
-      ellipse at 25% 15%,
-      #1d4787 0%,
-      transparent 55%
-    ),
-    radial-gradient(
-      ellipse at 85% 80%,
-      #601b35 0%,
-      transparent 50%
-    ),
+    radial-gradient(ellipse at 25% 15%, #1d4787 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 80%, #601b35 0%, transparent 50%),
     var(--bg);
 }
 
@@ -131,8 +122,7 @@ p {
 
 .grid {
   display: grid;
-  grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 22px;
   margin-top: 25px;
 }
@@ -140,9 +130,7 @@ p {
 .card {
   border: 1px solid #35527b;
   border-radius: 18px;
-  background: linear-gradient(
-    145deg, #182d4c, #10192d
-  );
+  background: linear-gradient(145deg, #182d4c, #10192d);
   overflow: hidden;
 }
 
@@ -208,12 +196,10 @@ p {
   margin-bottom: 12px;
 }
 
-/* LIVE SUBSCRIBER TRACKER */
+/* SUBSCRIBER TRACKER */
 
 .subscriber-panel {
-  background: linear-gradient(
-    135deg, #152b4d, #111b30
-  );
+  background: linear-gradient(135deg, #152b4d, #111b30);
   border: 1px solid #4169a0;
   border-radius: 20px;
   padding: 28px;
@@ -244,39 +230,36 @@ p {
   color: #a9bbd7;
 }
 
-/* HORIZONTAL MILESTONE CARDS */
+/* VERTICAL MILESTONE CARDS */
 
 .milestone-track {
   display: flex;
   flex-direction: column;
   gap: 18px;
-  overflow: visible;
   padding: 12px 0 25px;
-  scroll-snap-type: none;
 }
 
 .milestone {
-  flex: none;
   width: 100%;
-  max-width: none;
-  scroll-snap-align: none;
-}
-
-.milestone {
-  flex: 0 0 240px;
-  scroll-snap-align: start;
   border: 1px solid #385b8d;
-  background: linear-gradient(
-    150deg, #1a3154, #101a2d
-  );
+  background: linear-gradient(150deg, #1a3154, #101a2d);
   border-radius: 18px;
   padding: 22px;
   text-align: center;
 }
 
 .prize-icon {
-  font-size: 48px;
   margin: 12px 0;
+}
+
+.prize-icon img {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 220px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 0 auto;
 }
 
 .milestone h3 {
@@ -303,9 +286,7 @@ p {
 .progress-fill {
   width: 0%;
   height: 100%;
-  background: linear-gradient(
-    90deg, var(--blue), var(--red)
-  );
+  background: linear-gradient(90deg, var(--blue), var(--red));
   border-radius: 30px;
   transition: width 0.7s ease;
 }
@@ -327,7 +308,7 @@ p {
 }
 
 .milestone.reached {
-  border-color: #f43f56;
+  border-color: var(--red);
 }
 
 .milestone.reached .milestone-status {
@@ -354,14 +335,7 @@ footer {
   }
 
   .hero { padding-top: 65px; }
-
   .card img { height: 300px; }
-
-  .milestone {
-  width: 100%;
-  max-width: none;
-}
-
   .subscriber-panel { padding: 22px 14px; }
 }
 </style>
@@ -387,16 +361,13 @@ footer {
 
 <!-- HERO -->
 <section class="hero">
-
   <div class="eyebrow">
     STEVENVSUNIVERSE • COMMUNITY REWARDS
   </div>
 
   <h1>
     GIVEAWAY
-    <span style="color:var(--red)">
-      CENTER
-    </span>
+    <span style="color:var(--red)">CENTER</span>
   </h1>
 
   <p>
@@ -409,11 +380,9 @@ footer {
     VIEW ZELDA MILESTONES
   </a>
 
-  <a class="btn secondary"
-     href="venture-squad.html">
+  <a class="btn secondary" href="venture-squad.html">
     VENTURE SQUAD
   </a>
-
 </section>
 
 <main>
@@ -428,13 +397,12 @@ footer {
   <h2>The Zelda Giveaway Quest</h2>
 
   <p>
-    Five legendary rewards. Five subscriber
-    milestones. Watch our community grow
-    and help us reach the next adventure!
+    Five legendary rewards. Five subscriber milestones.
+    Watch our community grow and help us reach
+    the next adventure!
   </p>
 
   <div class="subscriber-panel">
-
     <span class="live-label">
       YOUTUBE SUBSCRIBER TRACKER
     </span>
@@ -461,18 +429,15 @@ footer {
     >
       VISIT STEVENVSGAMES
     </a>
-
   </div>
 
-  <div class="eyebrow">
-    THE FIVE REWARDS
-  </div>
+  <div class="eyebrow">THE FIVE REWARDS</div>
 
   <h2>Unlock the Milestones</h2>
 
   <p>
-    Swipe through the prizes to see how
-    close we are to each subscriber goal.
+    Explore the prizes below to see how close
+    we are to each subscriber goal.
   </p>
 
   <div class="milestone-track">
@@ -480,13 +445,13 @@ footer {
     <!-- NAVI -->
     <article class="milestone" data-goal="500">
       <div class="prize-icon">
-  <img
-    src="./navi.png"
-    alt="Steven's 3D-printed Navi fairy"
-    style="width:100%;max-width:220px;height:220px;object-fit:contain;border-radius:12px;"
-    loading="lazy"
-  >
-</div>
+        <img
+          src="./navi.png"
+          alt="Steven's 3D-printed Navi fairy"
+          loading="lazy"
+        >
+      </div>
+
       <span class="tag">MILESTONE 01</span>
       <h3>Navi</h3>
       <div class="goal">500 Subscribers</div>
@@ -499,21 +464,19 @@ footer {
         Loading progress...
       </div>
 
-      <span class="milestone-status">
-        CHECKING...
-      </span>
+      <span class="milestone-status">CHECKING...</span>
     </article>
 
     <!-- ENCASED HEART -->
     <article class="milestone" data-goal="1000">
-<div class="prize-icon">
-  <img
-    src="./encased-heart.png"
-    alt="Steven's 3D-printed Encased Heart"
-    style="width:100%;max-width:220px;height:220px;object-fit:contain;border-radius:12px;"
-    loading="lazy"
-  >
-</div>
+      <div class="prize-icon">
+        <img
+          src="./encased-heart.png"
+          alt="Steven's 3D-printed Encased Heart"
+          loading="lazy"
+        >
+      </div>
+
       <span class="tag">MILESTONE 02</span>
       <h3>Encased Heart</h3>
       <div class="goal">1,000 Subscribers</div>
@@ -526,21 +489,19 @@ footer {
         Loading progress...
       </div>
 
-      <span class="milestone-status">
-        CHECKING...
-      </span>
+      <span class="milestone-status">CHECKING...</span>
     </article>
 
     <!-- OCARINA -->
     <article class="milestone" data-goal="1500">
-<div class="prize-icon">
-  <img
-    src="./ocarina.png"
-    alt="Steven's 3D-printed Blue Ocarina"
-    style="width:100%;max-width:220px;height:220px;object-fit:contain;border-radius:12px;"
-    loading="lazy"
-  >
-</div>
+      <div class="prize-icon">
+        <img
+          src="./ocarina.png"
+          alt="Steven's 3D-printed Blue Ocarina"
+          loading="lazy"
+        >
+      </div>
+
       <span class="tag">MILESTONE 03</span>
       <h3>Ocarina</h3>
       <div class="goal">1,500 Subscribers</div>
@@ -553,21 +514,19 @@ footer {
         Loading progress...
       </div>
 
-      <span class="milestone-status">
-        CHECKING...
-      </span>
+      <span class="milestone-status">CHECKING...</span>
     </article>
 
     <!-- DEKU SHIELD -->
     <article class="milestone" data-goal="2500">
-<div class="prize-icon">
-  <img
-    src="./deku-shield.PNG"
-    alt="Steven's 3D-printed Deku Shield"
-    style="width:100%;max-width:220px;height:220px;object-fit:contain;border-radius:12px;"
-    loading="lazy"
-  >
-</div>
+      <div class="prize-icon">
+        <img
+          src="./deku-shield.PNG"
+          alt="Steven's 3D-printed Deku Shield"
+          loading="lazy"
+        >
+      </div>
+
       <span class="tag">MILESTONE 04</span>
       <h3>Deku Shield</h3>
       <div class="goal">2,500 Subscribers</div>
@@ -580,21 +539,19 @@ footer {
         Loading progress...
       </div>
 
-      <span class="milestone-status">
-        CHECKING...
-      </span>
+      <span class="milestone-status">CHECKING...</span>
     </article>
 
-    <!-- Kokiri SWORD -->
+    <!-- KOKIRI SWORD -->
     <article class="milestone" data-goal="5000">
-<div class="prize-icon">
-  <img
-    src="./kokiri-sword.png"
-    alt="Steven's 3D-printed Kokiri Sword"
-    style="width:100%;max-width:220px;height:220px;object-fit:contain;border-radius:12px;"
-    loading="lazy"
-  >
-</div>
+      <div class="prize-icon">
+        <img
+          src="./kokiri-sword.png"
+          alt="Steven's 3D-printed Kokiri Sword"
+          loading="lazy"
+        >
+      </div>
+
       <span class="tag">MILESTONE 05</span>
       <h3>Kokiri Sword</h3>
       <div class="goal">5,000 Subscribers</div>
@@ -607,31 +564,30 @@ footer {
         Loading progress...
       </div>
 
-      <span class="milestone-status">
-        CHECKING...
-      </span>
+      <span class="milestone-status">CHECKING...</span>
     </article>
 
   </div>
 
   <p class="scroll-hint">
-    ← Swipe to explore all five rewards →
+    Five Zelda rewards, one adventure at a time.
   </p>
 
   <div class="note">
     <strong>How Milestones Work</strong>
+
     <p>
-      Subscriber milestones are community
-      goals, not giveaway entry requirements.
-      Reaching a milestone does not
-      automatically open entries.
-      Giveaway dates and official rules
-      will be announced separately.
+      Subscriber milestones are community goals,
+      not giveaway entry requirements.
+      Reaching a milestone does not automatically
+      open entries. Giveaway dates and official
+      rules will be announced separately.
     </p>
+
     <p>
-      Subscriber counts are based on
-      YouTube's publicly reported data
-      and may be rounded or delayed.
+      Subscriber counts are based on YouTube's
+      publicly reported data and may be rounded
+      or delayed.
     </p>
   </div>
 
@@ -647,9 +603,7 @@ footer {
   <h2>Featured Giveaway</h2>
 
   <div class="grid">
-
     <article class="card">
-
       <img
         src="./deku-shield.PNG"
         alt="Steven's 3D-printed Deku Shield"
@@ -657,7 +611,6 @@ footer {
       >
 
       <div class="card-content">
-
         <span class="status">
           COMING SOON • NOT OPEN
         </span>
@@ -665,37 +618,31 @@ footer {
         <h3>Zelda Deku Shield</h3>
 
         <p>
-          A planned StevenVsGames
-          community giveaway features a
-          custom 3D-printed Deku Shield
-          from The Legend of Zelda:
-          Ocarina of Time.
+          A planned StevenVsGames community giveaway
+          features a custom 3D-printed Deku Shield
+          from The Legend of Zelda: Ocarina of Time.
         </p>
 
         <p>
-          The Deku Shield is our
-          2,500-subscriber milestone reward.
-          Giveaway dates, eligibility,
-          entry instructions, and official
-          rules will be published before
-          entries open.
+          The Deku Shield is our 2,500-subscriber
+          milestone reward. Giveaway dates,
+          eligibility, entry instructions, and
+          official rules will be published
+          before entries open.
         </p>
 
-        <a class="btn secondary"
-           href="bounty-board.html">
+        <a
+          class="btn secondary"
+          href="bounty-board.html"
+        >
           VIEW THE BOUNTY
         </a>
-
       </div>
     </article>
 
     <div class="card">
       <div class="card-content">
-
-        <span class="tag">
-          GIVEAWAY DETAILS
-        </span>
-
+        <span class="tag">GIVEAWAY DETAILS</span>
         <h3>Quest Information</h3>
 
         <p>
@@ -739,12 +686,9 @@ footer {
             count as an entry.
           </p>
         </div>
-
       </div>
     </div>
-
   </div>
-
 </section>
 
 <!-- UPCOMING GIVEAWAYS -->
@@ -757,7 +701,6 @@ footer {
   <h2>Upcoming Giveaways</h2>
 
   <div class="grid">
-
     <div class="slot">
       <div class="symbol">🎁</div>
       <h3>Mystery Gaming Print</h3>
@@ -784,9 +727,7 @@ footer {
       </p>
       <span class="tag">LOCKED</span>
     </div>
-
   </div>
-
 </section>
 
 <!-- GIVEAWAY RULES -->
@@ -799,7 +740,6 @@ footer {
   <h2>Giveaway Information & Rules</h2>
 
   <div class="rules">
-
     <p>
       Each giveaway will have its own
       official rules published before
@@ -856,9 +796,7 @@ footer {
         through our official channels.
       </p>
     </div>
-
   </div>
-
 </section>
 
 <!-- WINNERS -->
@@ -873,20 +811,19 @@ footer {
   <div class="slot">
     <div class="symbol">🏆</div>
     <h3>No Winners Yet</h3>
+
     <p>
       When our first giveaway concludes,
       winner announcements will appear
       here when appropriate and permitted.
     </p>
   </div>
-
 </section>
 
 <!-- COMMUNITY -->
 <section class="wrap">
 
   <div class="note">
-
     <h2>Join the Adventure</h2>
 
     <p>
@@ -895,20 +832,19 @@ footer {
       and future giveaway announcements.
     </p>
 
-    <a class="btn"
-       href="venture-squad.html">
+    <a class="btn" href="venture-squad.html">
       EXPLORE VENTURE SQUAD
     </a>
 
-    <a class="btn secondary"
-       href="https://discord.gg/Z2s77Np"
-       target="_blank"
-       rel="noopener noreferrer">
+    <a
+      class="btn secondary"
+      href="https://discord.gg/Z2s77Np"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
       JOIN DISCORD
     </a>
-
   </div>
-
 </section>
 
 </main>
@@ -962,17 +898,13 @@ async function updateSubscriberTracker() {
       updatedElement.textContent =
         Number.isNaN(date.getTime())
           ? "Subscriber data loaded"
-          : "Last updated: " +
-            date.toLocaleString();
+          : "Last updated: " + date.toLocaleString();
     } else {
       updatedElement.textContent =
         "Subscriber data loaded";
     }
 
-    document.querySelectorAll(
-      ".milestone"
-    ).forEach(card => {
-
+    document.querySelectorAll(".milestone").forEach(card => {
       const goal = Number(card.dataset.goal);
 
       const percent = Math.min(
@@ -982,17 +914,9 @@ async function updateSubscriberTracker() {
 
       const rounded = Math.round(percent);
 
-      const fill = card.querySelector(
-        ".progress-fill"
-      );
-
-      const label = card.querySelector(
-        ".progress-label"
-      );
-
-      const status = card.querySelector(
-        ".milestone-status"
-      );
+      const fill = card.querySelector(".progress-fill");
+      const label = card.querySelector(".progress-label");
+      const status = card.querySelector(".milestone-status");
 
       fill.style.width = percent + "%";
 
@@ -1007,34 +931,23 @@ async function updateSubscriberTracker() {
         card.classList.remove("reached");
         status.textContent = "IN PROGRESS";
       }
-
     });
 
   } catch (error) {
-
-    console.error(
-      "Subscriber tracker error:",
-      error
-    );
+    console.error("Subscriber tracker error:", error);
 
     countElement.textContent = "Unavailable";
 
     updatedElement.textContent =
-      "Could not load the latest count. " +
-      "Please check back later.";
+      "Could not load the latest count. Please check back later.";
 
-    document.querySelectorAll(
-      ".milestone"
-    ).forEach(card => {
-      card.querySelector(
-        ".progress-label"
-      ).textContent = "Progress unavailable";
+    document.querySelectorAll(".milestone").forEach(card => {
+      card.querySelector(".progress-label").textContent =
+        "Progress unavailable";
 
-      card.querySelector(
-        ".milestone-status"
-      ).textContent = "UPDATE PENDING";
+      card.querySelector(".milestone-status").textContent =
+        "UPDATE PENDING";
     });
-
   }
 }
 
