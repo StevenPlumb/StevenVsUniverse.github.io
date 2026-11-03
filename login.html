@@ -1,0 +1,389 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Venture Squad | Member Portal</title>
+  <style>
+    :root {
+      --red: #ff334b;
+      --blue: #398aff;
+      --bg: #080b16;
+      --panel: #131a2b;
+      --text: #f6f8ff;
+      --muted: #aab5cf;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(ellipse at 5% 5%, #a51c3840, transparent 45%),
+        radial-gradient(ellipse at 95% 90%, #1465c640, transparent 45%),
+        var(--bg);
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding: 20px 6%;
+      background: #080b16e8;
+      border-bottom: 1px solid #ffffff20;
+    }
+    .brand { font-size: 21px; font-weight: 900; }
+    .brand span { color: var(--red); }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 16px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    nav a:hover { color: var(--blue); }
+    main {
+      max-width: 520px;
+      margin: 65px auto;
+      padding: 0 18px 50px;
+    }
+    .eyebrow {
+      text-align: center;
+      color: var(--blue);
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    h1 {
+      text-align: center;
+      font-size: clamp(30px, 7vw, 45px);
+      margin: 12px 0;
+    }
+    h1 span { color: var(--red); }
+    .subtitle {
+      text-align: center;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 28px;
+    }
+    .panel {
+      background: var(--panel);
+      border: 1px solid #ffffff24;
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 60px #0007;
+    }
+    .tabs { display: flex; gap: 10px; margin-bottom: 25px; }
+    button {
+      cursor: pointer;
+      font-weight: 800;
+      border: 0;
+      border-radius: 10px;
+      padding: 14px;
+      color: white;
+    }
+    .tab { flex: 1; background: #242e48; }
+    .tab.active {
+      background: linear-gradient(110deg, var(--red), #b92878);
+    }
+    label {
+      display: block;
+      margin: 16px 0 7px;
+      font-size: 13px;
+      font-weight: bold;
+    }
+    input {
+      display: block;
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #53617e;
+      background: #0a1020;
+      color: white;
+      font-size: 16px;
+    }
+    input:focus { outline: 2px solid var(--blue); }
+    .primary {
+      width: 100%;
+      margin-top: 22px;
+      background: linear-gradient(110deg, var(--red), var(--blue));
+    }
+    .primary:disabled { opacity: .55; cursor: wait; }
+    .secondary {
+      background: transparent;
+      color: #8bb9ff;
+      padding: 12px 0;
+      text-decoration: underline;
+    }
+    .message {
+      margin-top: 18px;
+      padding: 12px;
+      border-radius: 10px;
+      background: #0b1325;
+      border: 1px solid #53617e;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+    .message.error { border-color: var(--red); }
+    .message.success { border-color: #47ce94; }
+    .hidden { display: none !important; }
+    .profile {
+      text-align: center;
+      line-height: 1.7;
+    }
+    .profile .avatar { font-size: 56px; }
+    .profile strong { overflow-wrap: anywhere; }
+    .profile a { color: #8bb9ff; }
+    footer {
+      text-align: center;
+      padding: 25px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">STEVEN<span>VS</span>UNIVERSE</div>
+    <nav>
+      <a href="index.html">HOME</a>
+      <a href="venture-squad.html">VENTURE SQUAD</a>
+      <a href="achievements.html">ACHIEVEMENTS</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="eyebrow">CHASE THE CHALLENGE</div>
+    <h1>VENTURE <span>SQUAD</span></h1>
+    <p class="subtitle">
+      Join the squad. Complete challenges. Earn legendary
+      achievements and build your collection.
+    </p>
+
+    <section class="panel" id="authPanel">
+      <div class="tabs">
+        <button type="button" id="loginTab" class="tab active">
+          SIGN IN
+        </button>
+        <button type="button" id="signupTab" class="tab">
+          JOIN THE SQUAD
+        </button>
+      </div>
+
+      <form id="authForm">
+        <div id="nameGroup" class="hidden">
+          <label for="displayName">SQUAD NAME</label>
+          <input id="displayName" type="text"
+                 maxlength="30" autocomplete="nickname"
+                 placeholder="Your Venture Squad name">
+        </div>
+
+        <label for="email">EMAIL ADDRESS</label>
+        <input id="email" type="email" required
+               autocomplete="email"
+               placeholder="you@example.com">
+
+        <label for="password">PASSWORD</label>
+        <input id="password" type="password" required
+               minlength="6" autocomplete="current-password"
+               placeholder="Enter your password">
+
+        <button class="primary" id="submitBtn" type="submit">
+          SIGN IN
+        </button>
+      </form>
+
+      <button class="secondary" id="forgotBtn" type="button">
+        Forgot your password?
+      </button>
+    </section>
+
+    <section class="panel hidden profile" id="profilePanel">
+      <div class="avatar">🏆</div>
+      <h2>WELCOME TO THE SQUAD!</h2>
+      <p>Signed in as <strong id="memberName"></strong></p>
+      <p id="memberEmail"></p>
+      <p>
+        Your personal achievement collection is coming next.
+        Your account will work across devices.
+      </p>
+      <p><a href="achievements.html">VIEW ACHIEVEMENT VAULT</a></p>
+      <button class="primary" id="logoutBtn" type="button">
+        SIGN OUT
+      </button>
+    </section>
+
+    <div id="message" class="message hidden" role="status"
+         aria-live="polite"></div>
+  </main>
+
+  <footer>
+    © StevenVsUniverse | Venture Squad | Chase The Challenge
+  </footer>
+
+  <script type="module">
+    import { initializeApp } from
+      "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+
+    import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      sendPasswordResetEmail,
+      updateProfile,
+      signOut,
+      onAuthStateChanged
+    } from
+      "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbRXKQQO87_sSyst3i61vl9sFYdfqCLkA",
+      authDomain: "venturesquad-d4121.firebaseapp.com",
+      projectId: "venturesquad-d4121",
+      storageBucket: "venturesquad-d4121.firebasestorage.app",
+      messagingSenderId: "346441546146",
+      appId: "1:346441546146:web:f63354f16304d75ce2dafb",
+      measurementId: "G-18JGKF9VET"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const $ = id => document.getElementById(id);
+    let mode = "login";
+
+    function showMessage(text, error = false) {
+      const el = $("message");
+      el.textContent = text;
+      el.className = "message " + (error ? "error" : "success");
+    }
+
+    function clearMessage() {
+      $("message").className = "message hidden";
+      $("message").textContent = "";
+    }
+
+    function setMode(next) {
+      mode = next;
+      clearMessage();
+      $("loginTab").classList.toggle("active", mode === "login");
+      $("signupTab").classList.toggle("active", mode === "signup");
+      $("nameGroup").classList.toggle("hidden", mode !== "signup");
+      $("displayName").required = mode === "signup";
+      $("password").autocomplete =
+        mode === "signup" ? "new-password" : "current-password";
+      $("submitBtn").textContent =
+        mode === "signup" ? "CREATE MY ACCOUNT" : "SIGN IN";
+      $("forgotBtn").classList.toggle("hidden", mode === "signup");
+    }
+
+    function readableError(error) {
+      switch (error.code) {
+        case "auth/email-already-in-use":
+          return "This email already has an account. Try signing in.";
+        case "auth/invalid-email":
+          return "Please enter a valid email address.";
+        case "auth/weak-password":
+          return "Choose a stronger password.";
+        case "auth/invalid-credential":
+          return "Incorrect email or password.";
+        case "auth/too-many-requests":
+          return "Too many attempts. Please try again later.";
+        case "auth/operation-not-allowed":
+          return "Email/password sign-in is not enabled in Firebase.";
+        case "auth/unauthorized-domain":
+          return "This website domain must be authorized in Firebase.";
+        case "auth/network-request-failed":
+          return "Network error. Check your internet connection.";
+        default:
+          return "Something went wrong. Please try again.";
+      }
+    }
+
+    $("loginTab").addEventListener("click", () => setMode("login"));
+    $("signupTab").addEventListener("click", () => setMode("signup"));
+
+    $("authForm").addEventListener("submit", async event => {
+      event.preventDefault();
+      clearMessage();
+
+      const email = $("email").value.trim();
+      const password = $("password").value;
+      const name = $("displayName").value.trim();
+      const button = $("submitBtn");
+
+      if (mode === "signup" && !name) {
+        showMessage("Please enter a squad name.", true);
+        return;
+      }
+
+      button.disabled = true;
+
+      try {
+        if (mode === "signup") {
+          const credential = await createUserWithEmailAndPassword(
+            auth, email, password
+          );
+          await updateProfile(credential.user, {
+            displayName: name
+          });
+          $("memberName").textContent = name;
+          showMessage("Welcome to Venture Squad! Account created.");
+        } else {
+          await signInWithEmailAndPassword(auth, email, password);
+          showMessage("Signed in successfully!");
+        }
+      } catch (error) {
+        showMessage(readableError(error), true);
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    $("forgotBtn").addEventListener("click", async () => {
+      const email = $("email").value.trim();
+
+      if (!email) {
+        showMessage("Enter your email address first.", true);
+        return;
+      }
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+        showMessage(
+          "If an account exists for that email, check your inbox for reset instructions."
+        );
+      } catch (error) {
+        showMessage(readableError(error), true);
+      }
+    });
+
+    $("logoutBtn").addEventListener("click", async () => {
+      try {
+        await signOut(auth);
+        clearMessage();
+      } catch (error) {
+        showMessage(readableError(error), true);
+      }
+    });
+
+    onAuthStateChanged(auth, user => {
+      $("authPanel").classList.toggle("hidden", !!user);
+      $("profilePanel").classList.toggle("hidden", !user);
+
+      if (user) {
+        $("memberName").textContent =
+          user.displayName || "Venture Squad Member";
+        $("memberEmail").textContent = user.email || "";
+      } else {
+        $("password").value = "";
+      }
+    });
+
+    setMode("login");
+  </script>
+</body>
+</html>
