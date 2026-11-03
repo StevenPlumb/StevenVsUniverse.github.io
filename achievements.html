@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Achievement Vault | StevenVsUniverse</title>
 
 <style>
@@ -18,9 +19,13 @@
   --border:#344967;
 }
 
-* { box-sizing:border-box; }
+* {
+  box-sizing:border-box;
+}
 
-html { scroll-behavior:smooth; }
+html {
+  scroll-behavior:smooth;
+}
 
 body {
   margin:0;
@@ -29,7 +34,10 @@ body {
   font-family:Arial,Helvetica,sans-serif;
 }
 
-a { color:inherit; text-decoration:none; }
+a {
+  color:inherit;
+  text-decoration:none;
+}
 
 header {
   background:#0d1729;
@@ -48,7 +56,9 @@ header {
   letter-spacing:1px;
 }
 
-.logo span { color:var(--red); }
+.logo span {
+  color:var(--red);
+}
 
 nav {
   display:flex;
@@ -58,7 +68,9 @@ nav {
   font-weight:bold;
 }
 
-nav a:hover { color:var(--blue); }
+nav a:hover {
+  color:var(--blue);
+}
 
 .container {
   width:min(1150px,92%);
@@ -67,10 +79,19 @@ nav a:hover { color:var(--blue); }
 
 .hero {
   text-align:center;
-  padding:65px 15px 40px;
+  padding:65px 15px 45px;
+
   background:
-    radial-gradient(circle at 15% 20%,#173c77 0%,transparent 45%),
-    radial-gradient(circle at 85% 80%,#651b32 0%,transparent 40%);
+    radial-gradient(
+      circle at 15% 20%,
+      #173c77 0%,
+      transparent 45%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      #651b32 0%,
+      transparent 40%
+    );
 }
 
 .eyebrow {
@@ -86,7 +107,9 @@ h1 {
   line-height:1.05;
 }
 
-h1 span { color:var(--red); }
+h1 span {
+  color:var(--red);
+}
 
 .hero p {
   color:var(--muted);
@@ -158,8 +181,8 @@ button {
 }
 
 .tier-btn.active {
-  border-color:var(--blue);
-  background:#24549c;
+  border-color:#c7d4e6;
+  background:#485e7b;
 }
 
 .tier-btn.gold.active {
@@ -174,13 +197,21 @@ button {
 }
 
 .coin-card {
-  background:linear-gradient(150deg,#192a47,#101a2e);
+  background:
+    linear-gradient(
+      150deg,
+      #192a47,
+      #101a2e
+    );
+
   border:1px solid var(--border);
   border-radius:16px;
   padding:17px 9px;
   text-align:center;
   min-width:0;
-  transition:transform .2s,border-color .2s;
+  transition:
+    transform .2s,
+    border-color .2s;
 }
 
 .coin-card.available {
@@ -196,7 +227,9 @@ button {
   width:100%;
   aspect-ratio:1/1;
   object-fit:contain;
-  filter:drop-shadow(0 8px 12px #0008);
+
+  filter:
+    drop-shadow(0 8px 12px #0008);
 }
 
 .coin-card h3 {
@@ -220,12 +253,20 @@ button {
   width:100%;
   aspect-ratio:1/1;
   border-radius:50%;
+
   background:
-    radial-gradient(circle at 35% 25%,#34496c,#10192b 70%);
+    radial-gradient(
+      circle at 35% 25%,
+      #34496c,
+      #10192b 70%
+    );
+
   border:4px solid #465777;
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   font-size:42px;
   color:#7f94b3;
 }
@@ -242,7 +283,9 @@ button {
   background:#152540;
 }
 
-.notice h3 { margin-top:0; }
+.notice h3 {
+  margin-top:0;
+}
 
 .notice p {
   color:var(--muted);
@@ -265,7 +308,9 @@ button {
   text-align:center;
 }
 
-.tier-card h3 { font-size:23px; }
+.tier-card h3 {
+  font-size:23px;
+}
 
 .tier-card p {
   color:var(--muted);
@@ -273,14 +318,26 @@ button {
   line-height:1.7;
 }
 
-.silver-label { color:#d2dbe8; }
-.gold-label { color:#f0c35c; }
+.silver-label {
+  color:#d2dbe8;
+}
+
+.gold-label {
+  color:#f0c35c;
+}
 
 .btn {
   display:inline-block;
   padding:13px 22px;
   border-radius:10px;
-  background:linear-gradient(90deg,var(--blue),#2450b8);
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--blue),
+      #2450b8
+    );
+
   color:white;
   font-weight:bold;
   font-size:13px;
@@ -288,7 +345,12 @@ button {
 }
 
 .btn.red {
-  background:linear-gradient(90deg,var(--red),#a9263c);
+  background:
+    linear-gradient(
+      90deg,
+      var(--red),
+      #a9263c
+    );
 }
 
 .links {
@@ -315,7 +377,9 @@ footer {
   justify-content:center;
 }
 
-.modal.open { display:flex; }
+.modal.open {
+  display:flex;
+}
 
 .modal-box {
   position:relative;
@@ -335,7 +399,9 @@ footer {
   object-fit:contain;
 }
 
-.modal-box h2 { margin-bottom:5px; }
+.modal-box h2 {
+  margin-bottom:5px;
+}
 
 .modal-box p {
   color:var(--muted);
@@ -354,21 +420,37 @@ footer {
 
 @media(max-width:850px) {
   .coin-grid {
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:
+      repeat(3,minmax(0,1fr));
   }
 }
 
 @media(max-width:520px) {
   .coin-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
+    grid-template-columns:
+      repeat(2,minmax(0,1fr));
     gap:10px;
   }
 
-  .coin-card { padding:13px 7px; }
-  .stats { gap:7px; }
-  .stat strong { font-size:22px; }
-  .tiers { grid-template-columns:1fr; }
-  header { justify-content:center; }
+  .coin-card {
+    padding:13px 7px;
+  }
+
+  .stats {
+    gap:7px;
+  }
+
+  .stat strong {
+    font-size:22px;
+  }
+
+  .tiers {
+    grid-template-columns:1fr;
+  }
+
+  header {
+    justify-content:center;
+  }
 }
 </style>
 </head>
@@ -382,31 +464,42 @@ footer {
 
   <nav>
     <a href="index.html">HOME</a>
-    <a href="venture-squad.html">VENTURE SQUAD</a>
-    <a href="bounty-board.html">BOUNTY BOARD</a>
-    <a href="giveaways.html">GIVEAWAYS</a>
+    <a href="venture-squad.html">
+      VENTURE SQUAD
+    </a>
+    <a href="bounty-board.html">
+      BOUNTY BOARD
+    </a>
+    <a href="giveaways.html">
+      GIVEAWAYS
+    </a>
   </nav>
 </header>
 
 <section class="hero">
   <div class="container">
+
     <div class="eyebrow">
       VENTURE SQUAD • SEASON 01
     </div>
 
-    <h1>ACHIEVEMENT <span>VAULT</span></h1>
+    <h1>
+      ACHIEVEMENT <span>VAULT</span>
+    </h1>
+
+    <p>THE HERO OF TIME COLLECTION</p>
 
     <p>
-      THE HERO OF TIME COLLECTION
-    </p>
+      Collect legendary Zelda-inspired
+      achievement coins.
 
-    <p>
-      Discover legendary Zelda-inspired coins.
-      Complete future trivia challenges and
-      build your Venture Squad collection.
+      Discover hidden challenges,
+      defeat bosses, and become
+      a legend of the Venture Squad!
     </p>
 
     <div class="stats">
+
       <div class="stat">
         <strong>20</strong>
         <small>TOTAL COIN SLOTS</small>
@@ -414,13 +507,14 @@ footer {
 
       <div class="stat">
         <strong>10</strong>
-        <small>DESIGNS REVEALED</small>
+        <small>COINS REVEALED</small>
       </div>
 
       <div class="stat">
         <strong>2</strong>
         <small>ACHIEVEMENT TIERS</small>
       </div>
+
     </div>
   </div>
 </section>
@@ -433,11 +527,15 @@ footer {
 
   <p class="description">
     Explore your coins in Silver or Gold.
-    Select any revealed coin to view it up close.
-    The remaining slots will be revealed later.
+    Select any revealed coin to view
+    its artwork up close.
+
+    The remaining ten slots will be
+    revealed as Season 01 progresses.
   </p>
 
   <div class="controls">
+
     <button
       id="silverBtn"
       class="tier-btn active"
@@ -453,18 +551,26 @@ footer {
       aria-pressed="false">
       🥇 GOLD
     </button>
+
   </div>
 
-  <div class="coin-grid" id="coinGrid"></div>
+  <div
+    class="coin-grid"
+    id="coinGrid">
+  </div>
 
   <div class="notice">
     <h3>🔒 Collection Preview</h3>
+
     <p>
-      These images show available coin artwork,
-      not achievements earned by a visitor.
-      Account registration, trivia verification,
-      and permanent collection tracking
-      are not active yet.
+      These images show the coin
+      artwork, not achievements
+      earned by a visitor.
+
+      Member accounts, trivia
+      verification, and permanent
+      collection tracking are
+      coming later.
     </p>
   </div>
 
@@ -477,23 +583,33 @@ footer {
   <div class="tiers">
 
     <div class="tier-card">
-      <h3 class="silver-label">🥈 SILVER</h3>
+      <h3 class="silver-label">
+        🥈 SILVER
+      </h3>
+
       <p>
         The standard achievement tier.
-        Once the claiming system launches,
+
+        Once claiming launches,
         Silver will remain obtainable
-        after the season ends.
+        permanently after each
+        eligible episode releases.
       </p>
     </div>
 
     <div class="tier-card">
-      <h3 class="gold-label">🥇 GOLD</h3>
+      <h3 class="gold-label">
+        🥇 GOLD
+      </h3>
+
       <p>
         The highest achievement tier.
+
         Gold will be available only
         for quests completed before
         the Season 01 finale deadline.
-        Earned Gold coins will remain
+
+        Earned Gold coins remain
         in members' collections.
       </p>
     </div>
@@ -502,33 +618,42 @@ footer {
 
   <div class="notice">
     <h3>⏳ Gold Achievement Deadline</h3>
+
     <p>
-      The deadline is tied to the
-      Season 01 finale. The exact
-      cutoff date and time will be
-      announced before claiming opens.
+      Gold achievements will remain
+      available until the announced
+      Season 01 finale deadline.
+
+      The exact cutoff date and time
+      will be announced before
+      achievement claiming opens.
     </p>
   </div>
 
 </section>
 
 <section class="links">
+
   <h2>CHASE THE CHALLENGE.</h2>
+
   <p class="description">
     CHANGE THE WORLD.
   </p>
 
-  <a class="btn"
-     href="venture-squad.html">
+  <a
+    class="btn"
+    href="venture-squad.html">
     VENTURE SQUAD HQ
   </a>
 
-  <a class="btn red"
-     href="https://www.youtube.com/@StevenVsGames"
-     target="_blank"
-     rel="noopener noreferrer">
+  <a
+    class="btn red"
+    href="https://www.youtube.com/@StevenVsGames"
+    target="_blank"
+    rel="noopener noreferrer">
     WATCH STEVENVSGAMES
   </a>
+
 </section>
 
 </main>
@@ -546,6 +671,7 @@ footer {
   aria-hidden="true">
 
   <div class="modal-box">
+
     <button
       class="close"
       onclick="closeModal()"
@@ -553,87 +679,107 @@ footer {
       ×
     </button>
 
-    <img id="modalImage" src="" alt="">
+    <img
+      id="modalImage"
+      src=""
+      alt="">
 
     <h2 id="modalTitle"></h2>
 
     <p id="modalDescription"></p>
 
-    <button class="tier-btn" onclick="closeModal()">
+    <button
+      class="tier-btn"
+      onclick="closeModal()">
       CLOSE
     </button>
+
   </div>
 </div>
 
 <script>
-const coinFolder = "coins/season-01/";
 
 /*
-  Filename format:
-  silver-eye.png
-  gold-eye.png
+  COIN IMAGE FOLDER
 
-  Fire Dog gold uses the confirmed filename:
-  gold-firedog.png
+  All PNG files are stored in:
+  coins/season-01/
+
+  Filenames below match your
+  updated list exactly.
 */
 
+const coinFolder = "coins/season-01/";
+
 const coins = [
+
   {
-    name:"Eye",
-    silver:"silver-eye.png",
-    gold:"gold-eye.png"
+    name:"Queen Gohma",
+    silver:"silver-gohma.png",
+    gold:"gold-gohma.png"
   },
+
   {
-    name:"Fire Dog",
-    silver:"silver-fire-dog.png",
-    gold:"gold-firedog.png"
+    name:"King Dodongo",
+    silver:"silver-dodongo.png",
+    gold:"gold-dodongo.png"
   },
+
   {
-    name:"Fish",
-    silver:"silver-fish.png",
-    gold:"gold-fish.png"
+    name:"Barinade",
+    silver:"silver-barinade.png",
+    gold:"gold-barinade.png"
   },
+
   {
-    name:"Ocarina",
-    silver:"silver-ocarina.png",
-    gold:"gold-ocarina.png"
+    name:"Phantom Ganon",
+    silver:"silver-phantom-ganon.png",
+    gold:"gold-phantom-ganon.png"
   },
+
   {
-    name:"Phantom",
-    silver:"silver-phantom.png",
-    gold:"gold-phantom.png"
+    name:"Volvagia",
+    silver:"silver-volvagia.png",
+    gold:"gold-volvagia.png"
   },
+
   {
-    name:"Spider",
-    silver:"silver-spider.png",
-    gold:"gold-spider.png"
+    name:"Morpha",
+    silver:"silver-morpha.png",
+    gold:"gold-morpha.png"
   },
+
   {
-    name:"Triforce",
-    silver:"silver-triforce.png",
-    gold:"gold-triforce.png"
-  },
-  {
-    name:"Twins",
-    silver:"silver-twins.png",
-    gold:"gold-twins.png"
-  },
-  {
-    name:"Bongo",
+    name:"Bongo Bongo",
     silver:"silver-bongo.png",
     gold:"gold-bongo.png"
   },
+
   {
-    name:"Dragon",
-    silver:"silver-dragon.png",
-    gold:"gold-dragon.png"
+    name:"Twinrova",
+    silver:"silver-twinrova.png",
+    gold:"gold-twinrova.png"
+  },
+
+  {
+    name:"Triforce",
+    silver:"silver-tryforce.png",
+    gold:"gold-triforce.png"
+  },
+
+  {
+    name:"Ocarina of Time",
+    silver:"silver-ocarina.png",
+    gold:"gold-ocarina.png"
   }
+
 ];
 
 let selectedTier = "silver";
 let previousFocus = null;
 
 function setTier(tier) {
+
   selectedTier = tier;
 
   const silverBtn =
@@ -643,57 +789,85 @@ function setTier(tier) {
     document.getElementById("goldBtn");
 
   silverBtn.classList.toggle(
-    "active", tier === "silver"
+    "active",
+    tier === "silver"
   );
 
   goldBtn.classList.toggle(
-    "active", tier === "gold"
+    "active",
+    tier === "gold"
   );
 
   silverBtn.setAttribute(
-    "aria-pressed", tier === "silver"
+    "aria-pressed",
+    tier === "silver"
   );
 
   goldBtn.setAttribute(
-    "aria-pressed", tier === "gold"
+    "aria-pressed",
+    tier === "gold"
   );
 
   renderCoins();
 }
 
 function renderCoins() {
-  const grid = document.getElementById("coinGrid");
+
+  const grid =
+    document.getElementById("coinGrid");
+
   grid.innerHTML = "";
 
   for (let i = 0; i < 20; i++) {
-    const card = document.createElement("div");
+
+    const card =
+      document.createElement("div");
+
     card.className = "coin-card";
 
     const number =
       String(i + 1).padStart(2,"0");
 
     if (i < coins.length) {
+
       const coin = coins[i];
-      const filename = coin[selectedTier];
-      const imagePath = coinFolder + filename;
+
+      const filename =
+        coin[selectedTier];
+
+      const imagePath =
+        coinFolder + filename;
 
       card.classList.add("available");
 
-      const image = document.createElement("img");
+      const image =
+        document.createElement("img");
+
       image.className = "coin-image";
       image.src = imagePath;
-      image.alt = selectedTier + " " + coin.name;
 
-      const numberLabel = document.createElement("div");
+      image.alt =
+        selectedTier + " " + coin.name;
+
+      const numberLabel =
+        document.createElement("div");
+
       numberLabel.className = "number";
-      numberLabel.textContent = "COIN " + number;
 
-      const title = document.createElement("h3");
+      numberLabel.textContent =
+        "COIN " + number;
+
+      const title =
+        document.createElement("h3");
+
       title.textContent = coin.name;
 
-      const subtitle = document.createElement("p");
+      const subtitle =
+        document.createElement("p");
+
       subtitle.textContent =
-        selectedTier.toUpperCase() + " EDITION";
+        selectedTier.toUpperCase() +
+        " EDITION";
 
       card.append(
         image,
@@ -703,40 +877,68 @@ function renderCoins() {
       );
 
       card.tabIndex = 0;
-      card.setAttribute("role","button");
+
       card.setAttribute(
-        "aria-label",
-        "Preview " + selectedTier + " " + coin.name
+        "role",
+        "button"
       );
 
-      card.addEventListener("click", () => {
-        openModal(coin);
-      });
+      card.setAttribute(
+        "aria-label",
+        "Preview " +
+        selectedTier + " " +
+        coin.name
+      );
 
-      card.addEventListener("keydown", event => {
-        if (event.key === "Enter" ||
-            event.key === " ") {
-          event.preventDefault();
-          openModal(coin);
+      card.addEventListener(
+        "click",
+        () => openModal(coin)
+      );
+
+      card.addEventListener(
+        "keydown",
+        event => {
+
+          if (
+            event.key === "Enter" ||
+            event.key === " "
+          ) {
+            event.preventDefault();
+            openModal(coin);
+          }
+
         }
-      });
+      );
 
     } else {
+
       card.classList.add("locked");
 
-      const mystery = document.createElement("div");
+      const mystery =
+        document.createElement("div");
+
       mystery.className = "locked-coin";
       mystery.textContent = "?";
 
-      const numberLabel = document.createElement("div");
+      const numberLabel =
+        document.createElement("div");
+
       numberLabel.className = "number";
-      numberLabel.textContent = "COIN " + number;
 
-      const title = document.createElement("h3");
-      title.textContent = "Mystery Coin";
+      numberLabel.textContent =
+        "COIN " + number;
 
-      const subtitle = document.createElement("p");
-      subtitle.textContent = "COMING SOON";
+      const title =
+        document.createElement("h3");
+
+      title.textContent =
+        "Mystery Coin";
+
+      const subtitle =
+        document.createElement("p");
+
+      subtitle.textContent =
+        "COMING SOON";
 
       card.append(
         mystery,
@@ -744,6 +946,7 @@ function renderCoins() {
         title,
         subtitle
       );
+
     }
 
     grid.appendChild(card);
@@ -751,7 +954,9 @@ function renderCoins() {
 }
 
 function openModal(coin) {
-  previousFocus = document.activeElement;
+
+  previousFocus =
+    document.activeElement;
 
   const imagePath =
     coinFolder + coin[selectedTier];
@@ -763,7 +968,9 @@ function openModal(coin) {
     document.getElementById("modalImage");
 
   image.src = imagePath;
-  image.alt = selectedTier + " " + coin.name;
+
+  image.alt =
+    selectedTier + " " + coin.name;
 
   document.getElementById(
     "modalTitle"
@@ -776,39 +983,63 @@ function openModal(coin) {
     " EDITION • SEASON 01";
 
   modal.classList.add("open");
-  modal.setAttribute("aria-hidden","false");
+
+  modal.setAttribute(
+    "aria-hidden",
+    "false"
+  );
 
   modal.querySelector(".close").focus();
 }
 
 function closeModal() {
+
   const modal =
     document.getElementById("coinModal");
 
   modal.classList.remove("open");
-  modal.setAttribute("aria-hidden","true");
 
-  if (previousFocus &&
-      typeof previousFocus.focus === "function") {
+  modal.setAttribute(
+    "aria-hidden",
+    "true"
+  );
+
+  if (
+    previousFocus &&
+    typeof previousFocus.focus === "function"
+  ) {
     previousFocus.focus();
   }
 }
 
 document.getElementById(
   "coinModal"
-).addEventListener("click", event => {
-  if (event.target.id === "coinModal") {
-    closeModal();
-  }
-});
+).addEventListener(
+  "click",
+  event => {
 
-document.addEventListener("keydown", event => {
-  if (event.key === "Escape") {
-    closeModal();
+    if (
+      event.target.id === "coinModal"
+    ) {
+      closeModal();
+    }
+
   }
-});
+);
+
+document.addEventListener(
+  "keydown",
+  event => {
+
+    if (event.key === "Escape") {
+      closeModal();
+    }
+
+  }
+);
 
 renderCoins();
+
 </script>
 
 </body>
