@@ -2,388 +2,398 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Venture Squad | Member Portal</title>
-  <style>
-    :root {
-      --red: #ff334b;
-      --blue: #398aff;
-      --bg: #080b16;
-      --panel: #131a2b;
-      --text: #f6f8ff;
-      --muted: #aab5cf;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(ellipse at 5% 5%, #a51c3840, transparent 45%),
-        radial-gradient(ellipse at 95% 90%, #1465c640, transparent 45%),
-        var(--bg);
-    }
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: 20px 6%;
-      background: #080b16e8;
-      border-bottom: 1px solid #ffffff20;
-    }
-    .brand { font-size: 21px; font-weight: 900; }
-    .brand span { color: var(--red); }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 16px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-    nav a:hover { color: var(--blue); }
-    main {
-      max-width: 520px;
-      margin: 65px auto;
-      padding: 0 18px 50px;
-    }
-    .eyebrow {
-      text-align: center;
-      color: var(--blue);
-      letter-spacing: 3px;
-      font-size: 12px;
-      font-weight: 900;
-    }
-    h1 {
-      text-align: center;
-      font-size: clamp(30px, 7vw, 45px);
-      margin: 12px 0;
-    }
-    h1 span { color: var(--red); }
-    .subtitle {
-      text-align: center;
-      color: var(--muted);
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-    .panel {
-      background: var(--panel);
-      border: 1px solid #ffffff24;
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 20px 60px #0007;
-    }
-    .tabs { display: flex; gap: 10px; margin-bottom: 25px; }
-    button {
-      cursor: pointer;
-      font-weight: 800;
-      border: 0;
-      border-radius: 10px;
-      padding: 14px;
-      color: white;
-    }
-    .tab { flex: 1; background: #242e48; }
-    .tab.active {
-      background: linear-gradient(110deg, var(--red), #b92878);
-    }
-    label {
-      display: block;
-      margin: 16px 0 7px;
-      font-size: 13px;
-      font-weight: bold;
-    }
-    input {
-      display: block;
-      width: 100%;
-      padding: 14px;
-      border-radius: 10px;
-      border: 1px solid #53617e;
-      background: #0a1020;
-      color: white;
-      font-size: 16px;
-    }
-    input:focus { outline: 2px solid var(--blue); }
-    .primary {
-      width: 100%;
-      margin-top: 22px;
-      background: linear-gradient(110deg, var(--red), var(--blue));
-    }
-    .primary:disabled { opacity: .55; cursor: wait; }
-    .secondary {
-      background: transparent;
-      color: #8bb9ff;
-      padding: 12px 0;
-      text-decoration: underline;
-    }
-    .message {
-      margin-top: 18px;
-      padding: 12px;
-      border-radius: 10px;
-      background: #0b1325;
-      border: 1px solid #53617e;
-      line-height: 1.5;
-      font-size: 14px;
-    }
-    .message.error { border-color: var(--red); }
-    .message.success { border-color: #47ce94; }
-    .hidden { display: none !important; }
-    .profile {
-      text-align: center;
-      line-height: 1.7;
-    }
-    .profile .avatar { font-size: 56px; }
-    .profile strong { overflow-wrap: anywhere; }
-    .profile a { color: #8bb9ff; }
-    footer {
-      text-align: center;
-      padding: 25px;
-      color: var(--muted);
-      font-size: 12px;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <div class="brand">STEVEN<span>VS</span>UNIVERSE</div>
-    <nav>
-      <a href="index.html">HOME</a>
-      <a href="venture-squad.html">VENTURE SQUAD</a>
-      <a href="achievements.html">ACHIEVEMENTS</a>
-    </nav>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<title>Venture Squad | StevenVsGames</title>
 
-  <main>
-    <div class="eyebrow">CHASE THE CHALLENGE</div>
-    <h1>VENTURE <span>SQUAD</span></h1>
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at top, #192b4d, #080b14 70%);
+  color: white;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  padding: 24px;
+  text-align: center;
+  border-bottom: 2px solid #243451;
+}
+
+.logo {
+  font-size: clamp(26px, 6vw, 42px);
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.red { color: #ff4545; }
+.blue { color: #4596ff; }
+
+header p { color: #aab6cf; }
+
+main {
+  width: min(440px, 92%);
+  margin: 65px auto;
+}
+
+.card {
+  background: #111a2d;
+  border: 1px solid #334463;
+  border-radius: 20px;
+  padding: 32px 24px;
+  text-align: center;
+  box-shadow: 0 20px 55px #0006;
+}
+
+h1 { font-size: 26px; }
+
+.subtitle {
+  color: #b3bfd5;
+  line-height: 1.6;
+}
+
+button, .link-button {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.discord {
+  background: #5865f2;
+  color: white;
+}
+
+.discord:hover { background: #4752c4; }
+
+.secondary {
+  background: #243450;
+  color: white;
+}
+
+button:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 3px solid #4596ff;
+  object-fit: cover;
+}
+
+.status {
+  color: #b3bfd5;
+  margin-top: 18px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.error { color: #ff7777; }
+
+footer {
+  margin-top: auto;
+  padding: 25px;
+  color: #7f91af;
+  font-size: 13px;
+  text-align: center;
+}
+
+[hidden] { display: none !important; }
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">
+    <span class="red">STEVEN</span>VS<span class="blue">GAMES</span>
+  </div>
+  <p>CHASE THE CHALLENGE.</p>
+</header>
+
+<main>
+  <section class="card">
+    <h1>🏆 VENTURE SQUAD HQ</h1>
     <p class="subtitle">
-      Join the squad. Complete challenges. Earn legendary
-      achievements and build your collection.
+      Join the squad, collect achievements,
+      and build your legendary trophy collection.
     </p>
 
-    <section class="panel" id="authPanel">
-      <div class="tabs">
-        <button type="button" id="loginTab" class="tab active">
-          SIGN IN
-        </button>
-        <button type="button" id="signupTab" class="tab">
-          JOIN THE SQUAD
-        </button>
-      </div>
+    <div id="loading">
+      <p class="status">Checking your membership...</p>
+    </div>
 
-      <form id="authForm">
-        <div id="nameGroup" class="hidden">
-          <label for="displayName">SQUAD NAME</label>
-          <input id="displayName" type="text"
-                 maxlength="30" autocomplete="nickname"
-                 placeholder="Your Venture Squad name">
-        </div>
-
-        <label for="email">EMAIL ADDRESS</label>
-        <input id="email" type="email" required
-               autocomplete="email"
-               placeholder="you@example.com">
-
-        <label for="password">PASSWORD</label>
-        <input id="password" type="password" required
-               minlength="6" autocomplete="current-password"
-               placeholder="Enter your password">
-
-        <button class="primary" id="submitBtn" type="submit">
-          SIGN IN
-        </button>
-      </form>
-
-      <button class="secondary" id="forgotBtn" type="button">
-        Forgot your password?
+    <div id="guest" hidden>
+      <button class="discord" id="loginBtn">
+        🎮 Sign in with Discord
       </button>
-    </section>
-
-    <section class="panel hidden profile" id="profilePanel">
-      <div class="avatar">🏆</div>
-      <h2>WELCOME TO THE SQUAD!</h2>
-      <p>Signed in as <strong id="memberName"></strong></p>
-      <p id="memberEmail"></p>
-      <p>
-        Your personal achievement collection is coming next.
-        Your account will work across devices.
+      <p class="status">
+        Your Discord account is your Venture Squad identity.
       </p>
-      <p><a href="achievements.html">VIEW ACHIEVEMENT VAULT</a></p>
-      <button class="primary" id="logoutBtn" type="button">
-        SIGN OUT
+    </div>
+
+    <div id="member" hidden>
+      <img class="avatar" id="avatar" alt="Discord avatar">
+      <h2 id="username"></h2>
+      <p class="subtitle">Welcome to the Venture Squad!</p>
+
+      <a class="link-button discord"
+         href="achievements.html">
+        🏆 Achievement Vault
+      </a>
+
+      <a class="link-button secondary"
+         href="venture-squad.html">
+        Venture Squad HQ
+      </a>
+
+      <button class="secondary" id="logoutBtn">
+        Sign Out
       </button>
-    </section>
+    </div>
 
-    <div id="message" class="message hidden" role="status"
-         aria-live="polite"></div>
-  </main>
+    <p class="status" id="message" role="status"></p>
+  </section>
+</main>
 
-  <footer>
-    © StevenVsUniverse | Venture Squad | Chase The Challenge
-  </footer>
+<footer>
+  StevenVsGames • Venture Squad • Chase The Challenge
+</footer>
 
-  <script type="module">
-    import { initializeApp } from
-      "https://www.gstatic.com/firebasejs/11.10.0/firebase-app.js";
+<script>
+const API = "https://venture-squad-auth.stevenlplumb.workers.dev";
 
-    import {
-      getAuth,
-      createUserWithEmailAndPassword,
-      signInWithEmailAndPassword,
-      sendPasswordResetEmail,
-      updateProfile,
-      signOut,
-      onAuthStateChanged
-    } from
-      "https://www.gstatic.com/firebasejs/11.10.0/firebase-auth.js";
+const TOKEN_KEY = "vs_session_token";
+const CHALLENGE_KEY = "vs_login_challenge";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAbRXKQQO87_sSyst3i61vl9sFYdfqCLkA",
-      authDomain: "venturesquad-d4121.firebaseapp.com",
-      projectId: "venturesquad-d4121",
-      storageBucket: "venturesquad-d4121.firebasestorage.app",
-      messagingSenderId: "346441546146",
-      appId: "1:346441546146:web:f63354f16304d75ce2dafb",
-      measurementId: "G-18JGKF9VET"
-    };
+const loading = document.getElementById("loading");
+const guest = document.getElementById("guest");
+const member = document.getElementById("member");
+const message = document.getElementById("message");
 
-    const app = initializeApp(firebaseConfig);
-    const auth = getAuth(app);
+function show(view) {
+  loading.hidden = view !== "loading";
+  guest.hidden = view !== "guest";
+  member.hidden = view !== "member";
+}
 
-    const $ = id => document.getElementById(id);
-    let mode = "login";
+function setMessage(text, error = false) {
+  message.textContent = text;
+  message.className = error ? "status error" : "status";
+}
 
-    function showMessage(text, error = false) {
-      const el = $("message");
-      el.textContent = text;
-      el.className = "message " + (error ? "error" : "success");
+function randomHex() {
+  const bytes = new Uint8Array(32);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, b =>
+    b.toString(16).padStart(2, "0")
+  ).join("");
+}
+
+function avatarURL(user) {
+  if (
+    user.avatar &&
+    /^[0-9]+$/.test(user.discord_id) &&
+    /^[a-zA-Z0-9_]+$/.test(user.avatar)
+  ) {
+    return `https://cdn.discordapp.com/avatars/${user.discord_id}/${user.avatar}.png?size=128`;
+  }
+
+  return "https://cdn.discordapp.com/embed/avatars/0.png";
+}
+
+async function checkMember() {
+  const token = sessionStorage.getItem(TOKEN_KEY);
+
+  if (!token) {
+    show("guest");
+    return;
+  }
+
+  try {
+    const response = await fetch(`${API}/me`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+      cache: "no-store"
+    });
+
+    if (!response.ok) throw new Error("Session check failed");
+
+    const data = await response.json();
+
+    if (!data.loggedIn) {
+      sessionStorage.removeItem(TOKEN_KEY);
+      show("guest");
+      return;
     }
 
-    function clearMessage() {
-      $("message").className = "message hidden";
-      $("message").textContent = "";
-    }
+    document.getElementById("username").textContent =
+      data.member.username;
 
-    function setMode(next) {
-      mode = next;
-      clearMessage();
-      $("loginTab").classList.toggle("active", mode === "login");
-      $("signupTab").classList.toggle("active", mode === "signup");
-      $("nameGroup").classList.toggle("hidden", mode !== "signup");
-      $("displayName").required = mode === "signup";
-      $("password").autocomplete =
-        mode === "signup" ? "new-password" : "current-password";
-      $("submitBtn").textContent =
-        mode === "signup" ? "CREATE MY ACCOUNT" : "SIGN IN";
-      $("forgotBtn").classList.toggle("hidden", mode === "signup");
-    }
+    document.getElementById("avatar").src =
+      avatarURL(data.member);
 
-    function readableError(error) {
-      switch (error.code) {
-        case "auth/email-already-in-use":
-          return "This email already has an account. Try signing in.";
-        case "auth/invalid-email":
-          return "Please enter a valid email address.";
-        case "auth/weak-password":
-          return "Choose a stronger password.";
-        case "auth/invalid-credential":
-          return "Incorrect email or password.";
-        case "auth/too-many-requests":
-          return "Too many attempts. Please try again later.";
-        case "auth/operation-not-allowed":
-          return "Email/password sign-in is not enabled in Firebase.";
-        case "auth/unauthorized-domain":
-          return "This website domain must be authorized in Firebase.";
-        case "auth/network-request-failed":
-          return "Network error. Check your internet connection.";
-        default:
-          return "Something went wrong. Please try again.";
-      }
-    }
+    show("member");
 
-    $("loginTab").addEventListener("click", () => setMode("login"));
-    $("signupTab").addEventListener("click", () => setMode("signup"));
+  } catch (error) {
+    show("guest");
+    setMessage(
+      "Unable to verify your session. Please try again.",
+      true
+    );
+  }
+}
 
-    $("authForm").addEventListener("submit", async event => {
-      event.preventDefault();
-      clearMessage();
+document.getElementById("loginBtn").addEventListener(
+  "click",
+  () => {
+    const challenge = randomHex();
 
-      const email = $("email").value.trim();
-      const password = $("password").value;
-      const name = $("displayName").value.trim();
-      const button = $("submitBtn");
+    sessionStorage.setItem(CHALLENGE_KEY, challenge);
 
-      if (mode === "signup" && !name) {
-        showMessage("Please enter a squad name.", true);
-        return;
-      }
+    window.location.assign(
+      `${API}/login?challenge=${encodeURIComponent(challenge)}`
+    );
+  }
+);
 
-      button.disabled = true;
+document.getElementById("logoutBtn").addEventListener(
+  "click",
+  async () => {
+    const token = sessionStorage.getItem(TOKEN_KEY);
 
+    if (token) {
       try {
-        if (mode === "signup") {
-          const credential = await createUserWithEmailAndPassword(
-            auth, email, password
-          );
-          await updateProfile(credential.user, {
-            displayName: name
-          });
-          $("memberName").textContent = name;
-          showMessage("Welcome to Venture Squad! Account created.");
-        } else {
-          await signInWithEmailAndPassword(auth, email, password);
-          showMessage("Signed in successfully!");
+        const response = await fetch(`${API}/logout`, {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${token}`
+          }
+        });
+
+        if (!response.ok) {
+          setMessage("Logout failed. Please try again.", true);
+          return;
         }
       } catch (error) {
-        showMessage(readableError(error), true);
-      } finally {
-        button.disabled = false;
-      }
-    });
-
-    $("forgotBtn").addEventListener("click", async () => {
-      const email = $("email").value.trim();
-
-      if (!email) {
-        showMessage("Enter your email address first.", true);
+        setMessage("Connection error. Please try again.", true);
         return;
       }
+    }
 
-      try {
-        await sendPasswordResetEmail(auth, email);
-        showMessage(
-          "If an account exists for that email, check your inbox for reset instructions."
-        );
-      } catch (error) {
-        showMessage(readableError(error), true);
+    sessionStorage.removeItem(TOKEN_KEY);
+    sessionStorage.removeItem(CHALLENGE_KEY);
+
+    show("guest");
+    setMessage("Successfully signed out.");
+  }
+);
+
+async function initialize() {
+  const fragment = new URLSearchParams(
+    window.location.hash.slice(1)
+  );
+
+  // Remove the one-time ticket from the address bar.
+  if (window.location.hash) {
+    history.replaceState(
+      null,
+      "",
+      window.location.pathname + window.location.search
+    );
+  }
+
+  const ticket = fragment.get("ticket");
+  const returnedChallenge = fragment.get("challenge");
+
+  if (ticket || returnedChallenge) {
+    const savedChallenge =
+      sessionStorage.getItem(CHALLENGE_KEY);
+
+    sessionStorage.removeItem(CHALLENGE_KEY);
+
+    if (
+      !ticket ||
+      !returnedChallenge ||
+      !savedChallenge ||
+      returnedChallenge !== savedChallenge
+    ) {
+      show("guest");
+      setMessage(
+        "Login verification failed. Please sign in again.",
+        true
+      );
+      return;
+    }
+
+    try {
+      const response = await fetch(`${API}/exchange`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          ticket,
+          challenge: savedChallenge
+        })
+      });
+
+      if (!response.ok) throw new Error("Exchange failed");
+
+      const data = await response.json();
+
+      if (!/^[a-f0-9]{64}$/.test(data.token || "")) {
+        throw new Error("Invalid session");
       }
-    });
 
-    $("logoutBtn").addEventListener("click", async () => {
-      try {
-        await signOut(auth);
-        clearMessage();
-      } catch (error) {
-        showMessage(readableError(error), true);
-      }
-    });
+      sessionStorage.setItem(TOKEN_KEY, data.token);
 
-    onAuthStateChanged(auth, user => {
-      $("authPanel").classList.toggle("hidden", !!user);
-      $("profilePanel").classList.toggle("hidden", !user);
+      await checkMember();
+      return;
 
-      if (user) {
-        $("memberName").textContent =
-          user.displayName || "Venture Squad Member";
-        $("memberEmail").textContent = user.email || "";
-      } else {
-        $("password").value = "";
-      }
-    });
+    } catch (error) {
+      show("guest");
+      setMessage(
+        "Discord sign-in could not be completed. Please try again.",
+        true
+      );
+      return;
+    }
+  }
 
-    setMode("login");
-  </script>
+  if (new URLSearchParams(window.location.search).has("error")) {
+    show("guest");
+    setMessage(
+      "Discord authorization was unsuccessful. Please try again.",
+      true
+    );
+    return;
+  }
+
+  await checkMember();
+}
+
+initialize();
+</script>
+
 </body>
 </html>
