@@ -27,7 +27,9 @@ body {
 }
 
 a { color:inherit; text-decoration:none; }
-button { font-family:inherit; cursor:pointer; }
+button, input { font-family:inherit; }
+button { cursor:pointer; }
+button:disabled { opacity:.5; cursor:not-allowed; }
 
 header {
   background:#0d1729;
@@ -294,6 +296,7 @@ h1 span { color:var(--red); }
 .btn {
   display:inline-block;
   padding:13px 22px;
+  border:0;
   border-radius:10px;
   background:linear-gradient(90deg,var(--blue),#2450b8);
   color:white;
@@ -310,6 +313,63 @@ h1 span { color:var(--red); }
   text-align:center;
   padding:35px 0 55px;
 }
+
+/* CHALLENGE CENTER */
+.challenge-card {
+  background:linear-gradient(145deg,#192a47,#101a2e);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:25px;
+  margin:20px 0;
+}
+
+.challenge-card h3 {
+  margin:0 0 14px;
+  font-size:21px;
+}
+
+.challenge-card p {
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.challenge-question {
+  font-size:17px;
+  font-weight:bold;
+  color:white !important;
+}
+
+.challenge-input {
+  width:100%;
+  padding:15px;
+  margin:15px 0;
+  background:#080d19;
+  color:white;
+  border:1px solid #4a6287;
+  border-radius:10px;
+  font-size:16px;
+}
+
+.challenge-input:focus {
+  outline:2px solid var(--blue);
+}
+
+.challenge-result {
+  min-height:22px;
+  font-weight:bold;
+  font-size:14px;
+}
+
+.challenge-empty {
+  background:#152540;
+  border:1px dashed #4a6287;
+  border-radius:15px;
+  padding:30px;
+  text-align:center;
+  margin-top:20px;
+}
+
+.challenge-empty h3 { margin-top:0; }
 
 footer {
   text-align:center;
@@ -439,6 +499,8 @@ footer {
 
 <main class="container">
 
+<!-- ACHIEVEMENT COLLECTION -->
+
 <section class="section" id="collection">
 
   <h2>Season 01 Coin Collection</h2>
@@ -506,6 +568,8 @@ footer {
 
 </section>
 
+<!-- SILVER AND GOLD -->
+
 <section class="section">
 
   <h2>Silver vs. Gold</h2>
@@ -545,7 +609,49 @@ footer {
 
 </section>
 
+<!-- CHALLENGE CENTER -->
+
+<section class="section" id="challenge-center">
+
+  <h2>🎮 Venture Squad Challenge Center</h2>
+
+  <p class="description">
+    Think you were paying attention?
+    Watch StevenVsGames, discover hidden clues,
+    and type your answers to unlock achievement coins!
+  </p>
+
+  <div class="notice">
+    <h3>🏆 How Challenges Work</h3>
+    <p>
+      Each challenge has a secret answer hidden
+      somewhere in a StevenVsGames episode.
+      Type the correct answer to earn your coin.
+
+      You get 5 incorrect attempts per 24 hours
+      for each challenge.
+
+      Your earned coins are permanently saved
+      to your Discord-linked Venture Squad account.
+    </p>
+  </div>
+
+  <div
+    id="challengeStatus"
+    class="description"
+    role="status"
+    aria-live="polite">
+    Loading available challenges...
+  </div>
+
+  <div id="challengeList"></div>
+
+</section>
+
+<!-- LINKS -->
+
 <section class="links">
+
   <h2>CHASE THE CHALLENGE.</h2>
   <p class="description">CHANGE THE WORLD.</p>
 
@@ -560,6 +666,7 @@ footer {
     rel="noopener noreferrer">
     WATCH STEVENVSGAMES
   </a>
+
 </section>
 
 </main>
@@ -567,6 +674,8 @@ footer {
 <footer>
   © StevenVsUniverse • Venture Squad • Season 01
 </footer>
+
+<!-- COIN PREVIEW MODAL -->
 
 <div
   class="modal"
@@ -598,12 +707,16 @@ footer {
 </div>
 
 <script>
+
+/* CLOUDFLARE WORKER */
+
 const WORKER =
   "https://venture-squad-auth.stevenlplumb.workers.dev";
 
+/* ZELDA COIN COLLECTION */
+
 const coinFolder = "coins/season-01/";
 
-// These IDs match Cloudflare's achievement coin IDs.
 const coins = [
   {
     id:"queen-gohma",
@@ -672,6 +785,8 @@ let previousFocus = null;
 let earned = new Map();
 let accountState = "loading";
 
+/* SILVER / GOLD PREVIEW */
+
 function setTier(tier) {
   selectedTier = tier;
 
@@ -687,6 +802,8 @@ function setTier(tier) {
 
   renderCoins();
 }
+
+/* RENDER COINS */
 
 function renderCoins() {
   const grid = document.getElementById("coinGrid");
@@ -770,6 +887,8 @@ function renderCoins() {
   });
 }
 
+/* DISCORD ACCOUNT STATUS */
+
 function setAccount(heading, message, linkVisible) {
   document.getElementById(
     "accountHeading"
@@ -785,12 +904,15 @@ function setAccount(heading, message, linkVisible) {
     linkVisible ? "inline-block" : "none";
 }
 
+/* LOAD EARNED ACHIEVEMENTS */
+
 async function loadCollection() {
   const token =
     sessionStorage.getItem("vs_session_token");
 
   if (!token) {
     accountState = "signed-out";
+    earned.clear();
 
     setAccount(
       "Not signed in",
@@ -801,6 +923,10 @@ async function loadCollection() {
     document.getElementById(
       "earnedCount"
     ).textContent = "—";
+
+    document.getElementById(
+      "collectionProgress"
+    ).textContent = "";
 
     renderCoins();
     return;
@@ -824,12 +950,21 @@ async function loadCollection() {
       awardsResponse.status === 401
     ) {
       accountState = "signed-out";
+      earned.clear();
 
       setAccount(
         "Session expired",
         "Please sign in again to see your collection.",
         true
       );
+
+      document.getElementById(
+        "earnedCount"
+      ).textContent = "—";
+
+      document.getElementById(
+        "collectionProgress"
+      ).textContent = "";
 
       renderCoins();
       return;
@@ -848,6 +983,7 @@ async function loadCollection() {
       !Array.isArray(data.achievements)
     ) {
       accountState = "signed-out";
+      earned.clear();
 
       setAccount(
         "Sign in required",
@@ -901,6 +1037,7 @@ async function loadCollection() {
 
   } catch (error) {
     accountState = "error";
+    earned.clear();
 
     setAccount(
       "Could not load achievements",
@@ -911,10 +1048,16 @@ async function loadCollection() {
     document.getElementById(
       "earnedCount"
     ).textContent = "—";
+
+    document.getElementById(
+      "collectionProgress"
+    ).textContent = "";
   }
 
   renderCoins();
 }
+
+/* COIN PREVIEW WINDOW */
 
 function openModal(coin) {
   previousFocus = document.activeElement;
@@ -972,8 +1115,197 @@ document.addEventListener("keydown", event => {
   }
 });
 
+/* CHALLENGE CENTER */
+
+async function loadChallenges() {
+  const status =
+    document.getElementById("challengeStatus");
+
+  const list =
+    document.getElementById("challengeList");
+
+  list.replaceChildren();
+
+  try {
+    const response = await fetch(
+      `${WORKER}/challenges`
+    );
+
+    if (!response.ok) {
+      throw new Error("Could not load challenges");
+    }
+
+    const data = await response.json();
+
+    if (!Array.isArray(data.challenges)) {
+      throw new Error("Invalid challenge data");
+    }
+
+    if (data.challenges.length === 0) {
+      status.textContent = "";
+
+      const empty = document.createElement("div");
+      empty.className = "challenge-empty";
+
+      const heading = document.createElement("h3");
+      heading.textContent = "🔒 No Active Challenges Yet";
+
+      const message = document.createElement("p");
+      message.className = "description";
+      message.textContent =
+        "New Zelda challenges are coming soon! " +
+        "Keep watching StevenVsGames for hidden clues.";
+
+      empty.append(heading, message);
+      list.appendChild(empty);
+      return;
+    }
+
+    const token =
+      sessionStorage.getItem("vs_session_token");
+
+    status.textContent =
+      token
+        ? "Choose a challenge and enter your answer!"
+        : "Sign in with Discord to submit answers.";
+
+    for (const challenge of data.challenges) {
+      const card = document.createElement("div");
+      card.className = "challenge-card";
+
+      const heading = document.createElement("h3");
+      heading.textContent =
+        `🎮 Episode ${challenge.episode_number} Challenge`;
+
+      const question = document.createElement("p");
+      question.className = "challenge-question";
+      question.textContent = challenge.question;
+
+      const reward = document.createElement("p");
+      reward.textContent =
+        "🏆 Reward: " +
+        challenge.coin_id.replace(/-/g, " ") +
+        " achievement coin";
+
+      const form = document.createElement("form");
+
+      const answer = document.createElement("input");
+      answer.type = "text";
+      answer.className = "challenge-input";
+      answer.placeholder = "Type your answer...";
+      answer.autocomplete = "off";
+      answer.required = true;
+      answer.maxLength = 200;
+      answer.setAttribute(
+        "aria-label",
+        `Answer for Episode ${challenge.episode_number}`
+      );
+
+      const button = document.createElement("button");
+      button.type = "submit";
+      button.className = "btn";
+      button.textContent = "SUBMIT ANSWER";
+      button.disabled = !token;
+
+      const result = document.createElement("p");
+      result.className = "challenge-result";
+      result.setAttribute("role", "status");
+      result.setAttribute("aria-live", "polite");
+
+      form.append(answer, button, result);
+
+      form.addEventListener("submit", async event => {
+        event.preventDefault();
+
+        const submittedAnswer = answer.value.trim();
+        if (!submittedAnswer) return;
+
+        const currentToken =
+          sessionStorage.getItem("vs_session_token");
+
+        if (!currentToken) {
+          result.textContent =
+            "Please sign in with Discord first.";
+          return;
+        }
+
+        button.disabled = true;
+        button.textContent = "CHECKING...";
+        result.textContent = "";
+
+        let completed = false;
+
+        try {
+          const response = await fetch(
+            `${WORKER}/submit-answer`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${currentToken}`
+              },
+              body: JSON.stringify({
+                challenge_id: challenge.challenge_id,
+                answer: submittedAnswer
+              })
+            }
+          );
+
+          const data = await response.json();
+
+          if (response.ok && data.correct === true) {
+            completed = true;
+
+            result.textContent =
+              "🏆 Correct! Your achievement has been verified.";
+
+            answer.value = "";
+
+            await loadCollection();
+            return;
+          }
+
+          if (response.status === 401) {
+            result.textContent =
+              "Your session expired. Please sign in again.";
+          } else if (response.status === 429) {
+            result.textContent =
+              "Too many attempts. Please try again later.";
+          } else if (!response.ok) {
+            result.textContent =
+              data.error ||
+              "Could not submit your answer.";
+          } else {
+            result.textContent =
+              "❌ Not quite! Check the episode and try again.";
+          }
+
+        } catch (error) {
+          result.textContent =
+            "Connection error. Please try again.";
+        } finally {
+          button.disabled = completed;
+          button.textContent =
+            completed ? "ACHIEVEMENT VERIFIED" : "SUBMIT ANSWER";
+        }
+      });
+
+      card.append(heading, question, reward, form);
+      list.appendChild(card);
+    }
+
+  } catch (error) {
+    status.textContent =
+      "Could not load challenges. Please refresh.";
+  }
+}
+
+/* START WEBSITE */
+
 renderCoins();
 loadCollection();
+loadChallenges();
+
 </script>
 
 </body>
